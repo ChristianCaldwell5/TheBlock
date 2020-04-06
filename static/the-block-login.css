@@ -1,0 +1,398 @@
+body{
+    background-image: url(assets/the-block-bg.v1.png);
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-color: rgba(233, 238, 242, 1);
+    margin: 0;
+    padding: 0;
+}
+/* -- DEFAULT STYLING -- */
+/* Login panel CSS */
+#login-container{
+    display: flex;
+    width: 95%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#login-panel{
+    position: relative;
+    width: 35%;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.4), 0 10px 24px 0 rgba(0, 0, 0, 0.4);
+    margin: auto;
+    overflow: auto;
+    text-align: center;
+}
+.the-block-title{
+    font-family: primary;
+    font-size: 5vh;
+    padding: 0.15vh;
+    font-weight: bold;
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+}
+#login-hr{
+    width: 90%;
+}
+.the-block-btn--large{
+    margin: 25px auto;
+    background-color: rgba(245, 20, 31, 0.7);
+    font-family: secondary;
+    font-size: 3vh;
+    padding: 10px;
+    width: 75%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+.the-block-btn--large:hover{
+    background-color: rgba(248, 84, 92, 0.7);
+}
+.the-block-inp--large{
+    margin: 25px auto;
+    font-family: secondary;
+    font-size: 3vh;
+    padding: 10px;
+    width: 75%;
+    border: 2px solid  rgba(245, 20, 31, 0.7);
+    border-radius: 10px;
+}
+a{
+    display: block;
+    font-family: primary;
+    width: 100%;
+    text-align: center;
+    margin: 10px auto;
+}
+#tb-logo{
+    z-index: 0;
+    position: fixed;
+    width: 50%;
+    right: -25%;
+    bottom: 0;
+    opacity: 0.20;
+    -webkit-animation: flame-in-out 5s infinite; 
+    -moz-animation:    flame-in-out 5s infinite; 
+    -o-animation:      flame-in-out 5s infinite; 
+    animation:         flame-in-out 5s infinite;
+    animation-timing-function: ease-in-out;
+}
+.clear::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+/* End login panel CSS */
+
+/* Slogan CSS */
+#slogan-login{
+    margin: auto;
+    width: 35%;
+    text-align: center;
+    font-family: primary;
+    font-size: 10vh;
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+}
+
+/* MEDIA QUERIES */
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+    /* Login panel CSS */
+    #login-container{
+        display: flex;
+        width: 95%;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    #login-panel{
+        position: relative;
+        width: 35%;
+        border: 2px solid black;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.4), 0 10px 24px 0 rgba(0, 0, 0, 0.4);
+        margin: auto;
+        overflow: auto;
+        text-align: center;
+    }
+    .the-block-title{
+        font-family: primary;
+        font-size: 5vh;
+        padding: 0.15vh;
+        font-weight: bold;
+        text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+    }
+    #login-hr{
+        width: 90%;
+    }
+    .the-block-btn--large{
+        margin: 25px auto;
+        background-color: rgba(245, 20, 31, 0.7);
+        font-family: secondary;
+        font-size: 3vh;
+        padding: 10px;
+        width: 75%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 1s;
+    }
+    .the-block-btn--large:hover{
+        background-color: rgba(248, 84, 92, 0.7);
+    }
+    a{
+        display: block;
+        font-family: primary;
+        width: 100%;
+        text-align: center;
+        margin: 10px auto;
+    }
+    #tb-logo{
+        z-index: 0;
+        position: fixed;
+        width: 50%;
+        right: -25%;
+        bottom: 0;
+        opacity: 0.20;
+        -webkit-animation: flame-in-out 5s infinite; /* Safari 4+ */
+        -moz-animation:    flame-in-out 5s infinite; /* Fx 5+ */
+        -o-animation:      flame-in-out 5s infinite; /* Opera 12+ */
+        animation:         flame-in-out 5s infinite;
+        animation-timing-function: ease-in-out;
+    }
+    .clear::after{
+        content: "";
+        clear: both;
+        display: table;
+    }
+    /* End login panel CSS */
+
+    /* Slogan CSS */
+    #slogan-login{
+        margin: auto;
+        width: 35%;
+        text-align: center;
+        font-family: primary;
+        font-size: 10vh;
+        text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+    }
+}
+    
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+    /* Login panel CSS */
+    #login-container{
+        display: flex;
+        width: 95%;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    #login-panel{
+        position: relative;
+        width: 35%;
+        border: 2px solid black;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.4), 0 10px 24px 0 rgba(0, 0, 0, 0.4);
+        margin: auto;
+        overflow: auto;
+        text-align: center;
+    }
+    .the-block-title{
+        font-family: primary;
+        font-size: 5vh;
+        padding: 0.15vh;
+        font-weight: bold;
+        text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+    }
+    #login-hr{
+        width: 90%;
+    }
+    .the-block-btn--large{
+        margin: 25px auto;
+        background-color: rgba(245, 20, 31, 0.7);
+        font-family: secondary;
+        font-size: 3vh;
+        padding: 10px;
+        width: 75%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 1s;
+    }
+    .the-block-btn--large:hover{
+        background-color: rgba(248, 84, 92, 0.7);
+    }
+    a{
+        display: block;
+        font-family: primary;
+        width: 100%;
+        text-align: center;
+        margin: 10px auto;
+    }
+    #tb-logo{
+        z-index: 0;
+        position: fixed;
+        width: 50%;
+        right: -25%;
+        bottom: 0;
+        opacity: 0.20;
+        -webkit-animation: flame-in-out 5s infinite; /* Safari 4+ */
+        -moz-animation:    flame-in-out 5s infinite; /* Fx 5+ */
+        -o-animation:      flame-in-out 5s infinite; /* Opera 12+ */
+        animation:         flame-in-out 5s infinite;
+        animation-timing-function: ease-in-out;
+    }
+    .clear::after{
+        content: "";
+        clear: both;
+        display: table;
+    }
+    /* End login panel CSS */
+
+    /* Slogan CSS */
+    #slogan-login{
+        margin: auto;
+        width: 35%;
+        text-align: center;
+        font-family: primary;
+        font-size: 10vh;
+        text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+    }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    /* #login-container{
+        display: block;
+        width: 95%;
+        margin: 1vh auto;
+        position: relative;
+        transform: none;
+        top: auto;
+        left: auto;
+    } */
+    #login-container{
+        display: block;
+        width: 95%;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    #login-panel{
+        width: 95%;
+    }  
+    .the-block-btn--large{
+        width: 85%;
+        font-size: 3vh;
+    }
+    #slogan-login{
+        margin: auto;
+        width: 95%;
+        text-align: center;
+        font-family: primary;
+        font-size: 4vh;
+        text-shadow: 3px 2px 0px #fff, 7px 6px 0px rgba(0,0,0,0.15);
+    }
+    #tb-logo{
+        z-index: 0;
+        position: fixed;
+        width: 100%;
+        right: 0%;
+        left: 0%;;
+        bottom: 0;
+        opacity: 0.20;
+        -webkit-animation: flame-in-out 5s infinite; /* Safari 4+ */
+        -moz-animation:    flame-in-out 5s infinite; /* Fx 5+ */
+        -o-animation:      flame-in-out 5s infinite; /* Opera 12+ */
+        animation:         flame-in-out 5s infinite;
+        animation-timing-function: ease-in-out;
+    }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 820px) {
+    #the-block-title{
+        font-size: 8vh;
+    }
+    #login-panel{
+        width: 40%;
+    }  
+    .the-block-btn--large{
+        width: 85%;
+        font-size: 5vh;
+    }
+    #slogan-login{
+        margin: auto;
+        width: 35%;
+        text-align: center;
+        font-family: primary;
+        font-size: 12vh;
+        text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+    }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 821px) and (max-width: 1024px) {
+    #login-container{
+        display: block;
+        width: 95%;
+        margin: 1vh auto;
+        position: relative;
+        transform: none;
+        top: auto;
+        left: auto;
+    }
+    #login-panel{
+        width: 95%;
+    }  
+    .the-block-btn--large{
+        width: 85%;
+        font-size: 3vh;
+    }
+    #slogan-login{
+        margin: auto;
+        width: 95%;
+        text-align: center;
+        font-family: primary;
+        font-size: 8vh;
+        text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+    }
+    #tb-logo{
+        z-index: 0;
+        position: fixed;
+        width: 100%;
+        right: 0%;
+        left: 0%;;
+        bottom: 0;
+        opacity: 0.20;
+        -webkit-animation: flame-in-out 5s infinite; /* Safari 4+ */
+        -moz-animation:    flame-in-out 5s infinite; /* Fx 5+ */
+        -o-animation:      flame-in-out 5s infinite; /* Opera 12+ */
+        animation:         flame-in-out 5s infinite;
+        animation-timing-function: ease-in-out;
+    }
+}
