@@ -1,0 +1,44 @@
+/* fonts */
+@font-face{
+    font-family: primary;
+    src: url(fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf);
+}
+@font-face{
+    font-family: secondary;
+    src: url(fonts/Roboto_Mono/RobotoMono-Regular.ttf);
+}
+/* 
+/* Animations */
+
+/* Logo Animation -- Login */
+@-webkit-keyframes flame-in-out{
+    0%   {opacity: 0.20}
+    50%  {opacity: 0.50}
+    100% {opacity: 0.20}
+}
+@-moz-keyframes flame-in-out{
+    0%   {opacity: 0.20}
+    50%  {opacity: 0.50}
+    100% {opacity: 0.20}
+}
+@-o-keyframes flame-in-out{
+    0%   {opacity: 0.20}
+    50%  {opacity: 0.50}
+    100% {opacity: 0.20}
+}
+@keyframes flame-in-out{
+    0%   {opacity: 0.20}
+    50%  {opacity: 0.50}
+    100% {opacity: 0.20}
+}
+
+/* Utility */
+.hide-element{
+    display: none;
+}
+.show-element--span{
+    display: inline;
+}
+.show-element--div{
+    display: block;
+}
