@@ -27,8 +27,9 @@ const SignUp = () => (
         <input className="the-block-inp--large clear" name="password" placeholder="Create Password"></input>
         <input className="the-block-inp--large clear" name="password" placeholder="Re-type Password"></input>
         <h1 className="the-block-title">Connect to Music Service</h1>
-        <hr id="login-hr"></hr>
-        <button id="login-submit-btn" className="the-block-btn--large clear">Login</button>
+	<a href="http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login"> Spotify Login </a>
+	<hr id="login-hr"></hr>
+	<button id="login-submit-btn" className="the-block-btn--large clear">Login</button>
         <button id="register-back-btn" className="the-block-btn--large clear">Back</button>
     </div>
 );
