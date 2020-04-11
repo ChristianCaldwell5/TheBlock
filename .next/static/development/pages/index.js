@@ -11,7 +11,7 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/var/www/html/TheBlock/components/login/loginPanel.js";
+var _jsxFileName = "/Users/chris/Documents/Capstone2/TheBlock/components/login/loginPanel.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -123,9 +123,9 @@ var Login = function Login() {
   }, "Back"));
 };
 
-var SignUp = function SignUp() {
+var SignUp_p1 = function SignUp_p1() {
   return __jsx("div", {
-    id: "register",
+    id: "register1",
     className: "hide-element",
     __source: {
       fileName: _jsxFileName,
@@ -156,6 +156,7 @@ var SignUp = function SignUp() {
     },
     __self: this
   }), __jsx("input", {
+    type: "password",
     className: "the-block-inp--large clear",
     name: "password",
     placeholder: "Create Password",
@@ -165,6 +166,7 @@ var SignUp = function SignUp() {
     },
     __self: this
   }), __jsx("input", {
+    type: "password",
     className: "the-block-inp--large clear",
     name: "password",
     placeholder: "Re-type Password",
@@ -173,37 +175,239 @@ var SignUp = function SignUp() {
       lineNumber: 28
     },
     __self: this
-  }), __jsx("h1", {
-    className: "the-block-title",
+  }), __jsx("button", {
+    id: "next1-btn",
+    className: "the-block-btn--large clear",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 29
+    },
+    __self: this
+  }, "Next"), __jsx("button", {
+    id: "cancel1-btn",
+    className: "the-block-btn--large clear",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: this
+  }, "Cancel"));
+};
+
+var SignUp_p2 = function SignUp_p2() {
+  return __jsx("div", {
+    id: "register2",
+    className: "hide-element",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: this
+  }, __jsx("h1", {
+    className: "the-block-title",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: this
+  }, "Demographic Info"), __jsx("hr", {
+    id: "login-hr",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: this
+  }), __jsx("select", {
+    defaultValue: "selectGender",
+    name: "gender",
+    className: "the-block-slct--large",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
+  }, __jsx("option", {
+    disabled: true,
+    value: "selectGender",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38
+    },
+    __self: this
+  }, "Select Gender"), __jsx("option", {
+    value: "male",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39
+    },
+    __self: this
+  }, "Male"), __jsx("option", {
+    value: "female",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40
+    },
+    __self: this
+  }, "Female"), __jsx("option", {
+    value: "other",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41
+    },
+    __self: this
+  }, "Other")), __jsx("select", {
+    name: "country",
+    className: "countries the-block-slct--large",
+    id: "countryId",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: this
+  }, __jsx("option", {
+    value: "",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: this
+  }, "Select Country")), __jsx("select", {
+    name: "state",
+    className: "states the-block-slct--large",
+    id: "stateId",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46
+    },
+    __self: this
+  }, __jsx("option", {
+    value: "",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: this
+  }, "Select State")), __jsx("select", {
+    name: "city",
+    className: "cities the-block-slct--large",
+    id: "cityId",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: this
+  }, __jsx("option", {
+    value: "",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50
+    },
+    __self: this
+  }, "Select City")), __jsx("input", {
+    type: "number",
+    className: "the-block-inp--large clear",
+    name: "age",
+    placeholder: "Enter Age...",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: this
+  }), __jsx("script", {
+    src: "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: this
+  }), __jsx("script", {
+    src: "//geodata.solutions/includes/countrystatecity.js",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
+    },
+    __self: this
+  }), __jsx("button", {
+    id: "next2-btn",
+    className: "the-block-btn--large clear",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: this
+  }, "Next"), __jsx("button", {
+    id: "cancel2-btn",
+    className: "the-block-btn--large clear",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: this
+  }, "Cancel"));
+};
+
+var SignUp_p3 = function SignUp_p3() {
+  return __jsx("div", {
+    id: "register3",
+    className: "hide-element",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: this
+  }, __jsx("h1", {
+    className: "the-block-title",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
     },
     __self: this
   }, "Connect to Music Service"), __jsx("hr", {
     id: "login-hr",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 62
     },
     __self: this
-  }), __jsx("button", {
-    id: "login-submit-btn",
+  }), __jsx("a", {
+    className: "the-block-spotify--large",
+    href: "http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 63
+    },
+    __self: this
+  }, __jsx("i", {
+    className: "fa fa-spotify block-icon",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 63
+    },
+    __self: this
+  }), "Spotify Login"), __jsx("a", {
+    className: "the-block-apple--large",
+    href: "http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64
+    },
+    __self: this
+  }, __jsx("i", {
+    className: "fa fa-apple block-icon",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64
+    },
+    __self: this
+  }), "Apple Login"), __jsx("button", {
+    id: "cancel3-btn",
     className: "the-block-btn--large clear",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 65
     },
     __self: this
-  }, "Login"), __jsx("button", {
-    id: "register-back-btn",
-    className: "the-block-btn--large clear",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 32
-    },
-    __self: this
-  }, "Back"));
+  }, "Cancel"));
 };
 
 var Panel = function Panel() {
@@ -211,25 +415,37 @@ var Panel = function Panel() {
     id: "login-panel",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 70
     },
     __self: this
   }, __jsx(Initial, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 71
     },
     __self: this
   }), __jsx(Login, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 72
     },
     __self: this
-  }), __jsx(SignUp, {
+  }), __jsx(SignUp_p1, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 73
+    },
+    __self: this
+  }), __jsx(SignUp_p2, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74
+    },
+    __self: this
+  }), __jsx(SignUp_p3, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
     },
     __self: this
   }));
@@ -250,7 +466,7 @@ var Panel = function Panel() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/var/www/html/TheBlock/components/login/slogan.js";
+var _jsxFileName = "/Users/chris/Documents/Capstone2/TheBlock/components/login/slogan.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -3379,10 +3595,10 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2Fvar%2Fwww%2Fhtml%2FTheBlock%2Fpages%2Findex.js!./":
-/*!**************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2Fvar%2Fwww%2Fhtml%2FTheBlock%2Fpages%2Findex.js ***!
-  \**************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2Fchris%2FDocuments%2FCapstone2%2FTheBlock%2Fpages%2Findex.js!./":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2Fchris%2FDocuments%2FCapstone2%2FTheBlock%2Fpages%2Findex.js ***!
+  \***********************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3831,7 +4047,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_login_loginPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/login/loginPanel */ "./components/login/loginPanel.js");
 /* harmony import */ var _components_login_slogan__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/login/slogan */ "./components/login/slogan.js");
-var _jsxFileName = "/var/www/html/TheBlock/pages/index.js";
+var _jsxFileName = "/Users/chris/Documents/Capstone2/TheBlock/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -3872,46 +4088,54 @@ function Index() {
       lineNumber: 12
     },
     __self: this
+  }), __jsx("link", {
+    href: "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+    rel: "stylesheet",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: this
   })), __jsx("img", {
     id: "tb-logo",
     src: "../static/assets/TB - FlameLogo.png",
     alt: "logo",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 15
     },
     __self: this
   }), __jsx("div", {
     id: "login-container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 16
     },
     __self: this
   }, __jsx(_components_login_loginPanel__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 17
     },
     __self: this
   }), __jsx(_components_login_slogan__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 18
     },
     __self: this
   })), __jsx("script", {
     src: "/static/utility_script/login.js",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 20
     },
     __self: this
   }), __jsx("script", {
     src: "/static/utility_script/utility.js",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 21
     },
     __self: this
   }));
@@ -3920,13 +4144,13 @@ function Index() {
 /***/ }),
 
 /***/ 2:
-/*!******************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fvar%2Fwww%2Fhtml%2FTheBlock%2Fpages%2Findex.js ***!
-  \******************************************************************************************************************/
+/*!***************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fchris%2FDocuments%2FCapstone2%2FTheBlock%2Fpages%2Findex.js ***!
+  \***************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=%2Fvar%2Fwww%2Fhtml%2FTheBlock%2Fpages%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2Fvar%2Fwww%2Fhtml%2FTheBlock%2Fpages%2Findex.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fchris%2FDocuments%2FCapstone2%2FTheBlock%2Fpages%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2Fchris%2FDocuments%2FCapstone2%2FTheBlock%2Fpages%2Findex.js!./");
 
 
 /***/ }),

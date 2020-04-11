@@ -10,6 +10,7 @@ export default function Index() {
           <title>The Block</title>
           <link href="/static/general.css" rel="stylesheet" />
           <link href="/static/the-block-login.css" rel="stylesheet" />
+          <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
         </Head>
         <img id="tb-logo" src="../static/assets/TB - FlameLogo.png" alt="logo"></img>
         <div id="login-container">

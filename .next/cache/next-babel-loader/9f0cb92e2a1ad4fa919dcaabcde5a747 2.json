@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React from 'react';\n\nvar Slogan = function Slogan() {\n  return __jsx(\"div\", {\n    id: \"slogan-login\"\n  }, __jsx(\"p\", null, \"Where Music Discovery Happens\"));\n};\n\nexport default Slogan;","map":null,"metadata":{},"sourceType":"module"}
