@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-
+const express = require('express');
+const app = express();
 // library for signing tokens
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
