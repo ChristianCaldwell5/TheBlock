@@ -49,6 +49,35 @@ body{
     border-radius: 10px;
     cursor: pointer;
     transition: 1s;
+    text-decoration: none;
+}
+.the-block-spotify--large{
+    margin: 15px auto;
+    background-color: rgb(30,215,96);
+    font-family: secondary;
+    font-size: 3vh;
+    padding: 10px;
+    width: 75%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+.the-block-apple--large{
+    margin: 15px auto;
+    background-color: rgb(249,246,239);
+    font-family: secondary;
+    font-size: 3vh;
+    padding: 10px;
+    width: 75%;
+    border-radius: 10px;
+    border: 0.5px solid black;
+    cursor: pointer;
+    transition: 1s;
+    text-decoration: none;
+    color: black;
 }
 .the-block-btn--large:hover{
     background-color: rgba(248, 84, 92, 0.7);
@@ -73,6 +102,11 @@ body{
 }
 .slct-default{
     color: white;
+}
+.block-icon{
+    padding: 0px 15px 0 15px;
+    display: inline-block;
+    font-size: 3vh;
 }
 a{
     display: block;
