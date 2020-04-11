@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -104,11 +104,7 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-<<<<<<< HEAD
 var _jsxFileName = "/Users/chris/Documents/Capstone2/TheBlock/components/login/loginPanel.js";
-=======
-var _jsxFileName = "/var/www/html/TheBlock/components/login/loginPanel.js";
->>>>>>> dev
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -216,13 +212,8 @@ const Login = () => __jsx("div", {
   __self: undefined
 }, "Back"));
 
-<<<<<<< HEAD
 const SignUp_p1 = () => __jsx("div", {
   id: "register1",
-=======
-const SignUp = () => __jsx("div", {
-  id: "register",
->>>>>>> dev
   className: "hide-element",
   __source: {
     fileName: _jsxFileName,
@@ -270,7 +261,6 @@ const SignUp = () => __jsx("div", {
     lineNumber: 28
   },
   __self: undefined
-<<<<<<< HEAD
 }), __jsx("button", {
   id: "next1-btn",
   className: "the-block-btn--large clear",
@@ -438,27 +428,43 @@ const SignUp_p2 = () => __jsx("div", {
   },
   __self: undefined
 }, "Cancel"));
-=======
-}), __jsx("h1", {
+
+const SignUp_p3 = () => __jsx("div", {
+  id: "register3",
+  className: "hide-element",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 60
+  },
+  __self: undefined
+}, __jsx("h1", {
   className: "the-block-title",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 29
+    lineNumber: 61
   },
   __self: undefined
 }, "Connect to Music Service"), __jsx("hr", {
   id: "login-hr",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 30
+    lineNumber: 62
   },
   __self: undefined
-}), __jsx("button", {
+}), __jsx("a", {
+  className: "the-block-btn--large",
+  href: "http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 63
+  },
+  __self: undefined
+}, "Spotify Login"), __jsx("button", {
   id: "login-submit-btn",
   className: "the-block-btn--large clear",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 31
+    lineNumber: 64
   },
   __self: undefined
 }, "Login"), __jsx("button", {
@@ -466,59 +472,46 @@ const SignUp_p2 = () => __jsx("div", {
   className: "the-block-btn--large clear",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 32
+    lineNumber: 65
   },
   __self: undefined
 }, "Back"));
->>>>>>> dev
 
 const Panel = () => __jsx("div", {
   id: "login-panel",
   __source: {
     fileName: _jsxFileName,
-<<<<<<< HEAD
-    lineNumber: 61
-=======
-    lineNumber: 37
->>>>>>> dev
+    lineNumber: 70
   },
   __self: undefined
 }, __jsx(Initial, {
   __source: {
     fileName: _jsxFileName,
-<<<<<<< HEAD
-    lineNumber: 62
-=======
-    lineNumber: 38
->>>>>>> dev
+    lineNumber: 71
   },
   __self: undefined
 }), __jsx(Login, {
   __source: {
     fileName: _jsxFileName,
-<<<<<<< HEAD
-    lineNumber: 63
+    lineNumber: 72
   },
   __self: undefined
 }), __jsx(SignUp_p1, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 64
+    lineNumber: 73
   },
   __self: undefined
 }), __jsx(SignUp_p2, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 65
-=======
-    lineNumber: 39
+    lineNumber: 74
   },
   __self: undefined
-}), __jsx(SignUp, {
+}), __jsx(SignUp_p3, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 40
->>>>>>> dev
+    lineNumber: 75
   },
   __self: undefined
 }));
@@ -538,11 +531,7 @@ const Panel = () => __jsx("div", {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-<<<<<<< HEAD
 var _jsxFileName = "/Users/chris/Documents/Capstone2/TheBlock/components/login/slogan.js";
-=======
-var _jsxFileName = "/var/www/html/TheBlock/components/login/slogan.js";
->>>>>>> dev
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -581,11 +570,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_login_loginPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/login/loginPanel */ "./components/login/loginPanel.js");
 /* harmony import */ var _components_login_slogan__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/login/slogan */ "./components/login/slogan.js");
-<<<<<<< HEAD
 var _jsxFileName = "/Users/chris/Documents/Capstone2/TheBlock/pages/index.js";
-=======
-var _jsxFileName = "/var/www/html/TheBlock/pages/index.js";
->>>>>>> dev
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -632,40 +617,54 @@ function Index() {
     alt: "logo",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 15
     },
     __self: this
   }), __jsx("div", {
     id: "login-container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 16
     },
     __self: this
   }, __jsx(_components_login_loginPanel__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 17
     },
     __self: this
   }), __jsx(_components_login_slogan__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 18
     },
     __self: this
   })), __jsx("script", {
     src: "/static/utility_script/login.js",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 20
     },
     __self: this
   }), __jsx("script", {
     src: "/static/utility_script/utility.js",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 21
+    },
+    __self: this
+  }), __jsx("script", {
+    src: "/static/spotify/functions/login.js",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: this
+  }), __jsx("script", {
+    src: "/static/spotify/functions/app.js",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
     },
     __self: this
   }));
@@ -673,18 +672,14 @@ function Index() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /Users/chris/Documents/Capstone2/TheBlock/pages/index.js */"./pages/index.js");
-=======
-module.exports = __webpack_require__(/*! /var/www/html/TheBlock/pages/index.js */"./pages/index.js");
->>>>>>> dev
 
 
 /***/ }),

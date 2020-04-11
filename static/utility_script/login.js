@@ -45,9 +45,17 @@ document.getElementById('next1-btn').addEventListener('click', function() {
  }, false);
 
  //next button on register2 is selected
- document.getElementById('next1-btn').addEventListener('click', function() { 
+ document.getElementById('next2-btn').addEventListener('click', function() { 
    clearClass(register2);
    clearClass(register3);
    register2.classList.add('hide-element');
    register3.classList.add('show-element--div');
+}, false);
+
+//cancel button on register2 option is selected
+document.getElementById('cancel2-btn').addEventListener('click', function() { 
+   clearClass(initial);
+   clearClass(register2);
+   register2.classList.add('hide-element');
+   initial.classList.add('show-element--div');
 }, false);
