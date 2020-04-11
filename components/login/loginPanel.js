@@ -24,8 +24,8 @@ const SignUp_p1 = () => (
         <h1 className="the-block-title">The Block - Register</h1>
         <hr id="login-hr"></hr>
         <input className="the-block-inp--large clear" name="username" placeholder="Create Username"></input>
-        <input className="the-block-inp--large clear" name="password" placeholder="Create Password"></input>
-        <input className="the-block-inp--large clear" name="password" placeholder="Re-type Password"></input>
+        <input type="password" className="the-block-inp--large clear" name="password" placeholder="Create Password"></input>
+        <input type="password" className="the-block-inp--large clear" name="password" placeholder="Re-type Password"></input>
         <button id="next1-btn" className="the-block-btn--large clear">Next</button>
         <button id="cancel1-btn" className="the-block-btn--large clear">Cancel</button>
     </div>
@@ -60,9 +60,9 @@ const SignUp_p3 = () => (
     <div id="register3" className="hide-element">
         <h1 className="the-block-title">Connect to Music Service</h1>
         <hr id="login-hr"></hr>
-        <a className="the-block-btn--large" href="http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login">Spotify Login</a>
-        <button id="login-submit-btn" className="the-block-btn--large clear">Login</button>
-        <button id="register-back-btn" className="the-block-btn--large clear">Back</button>
+        <a className="the-block-spotify--large" href="http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login"><i className="fa fa-spotify block-icon"></i>Spotify Login</a>
+        <a className="the-block-apple--large" href="http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login"><i className="fa fa-apple block-icon"></i>Apple Login</a>
+        <button id="cancel3-btn" className="the-block-btn--large clear">Cancel</button>
     </div>
 );
 

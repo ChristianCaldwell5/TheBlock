@@ -59,3 +59,11 @@ document.getElementById('cancel2-btn').addEventListener('click', function() {
    register2.classList.add('hide-element');
    initial.classList.add('show-element--div');
 }, false);
+
+//cancel button on register3 option is selected
+document.getElementById('cancel3-btn').addEventListener('click', function() { 
+   clearClass(initial);
+   clearClass(register3);
+   register3.classList.add('hide-element');
+   initial.classList.add('show-element--div');
+}, false);

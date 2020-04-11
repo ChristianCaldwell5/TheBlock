@@ -244,6 +244,7 @@ const SignUp_p1 = () => __jsx("div", {
   },
   __self: undefined
 }), __jsx("input", {
+  type: "password",
   className: "the-block-inp--large clear",
   name: "password",
   placeholder: "Create Password",
@@ -253,6 +254,7 @@ const SignUp_p1 = () => __jsx("div", {
   },
   __self: undefined
 }), __jsx("input", {
+  type: "password",
   className: "the-block-inp--large clear",
   name: "password",
   placeholder: "Re-type Password",
@@ -452,30 +454,44 @@ const SignUp_p3 = () => __jsx("div", {
   },
   __self: undefined
 }), __jsx("a", {
-  className: "the-block-btn--large",
+  className: "the-block-spotify--large",
   href: "http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login",
   __source: {
     fileName: _jsxFileName,
     lineNumber: 63
   },
   __self: undefined
-}, "Spotify Login"), __jsx("button", {
-  id: "login-submit-btn",
-  className: "the-block-btn--large clear",
+}, __jsx("i", {
+  className: "fa fa-spotify block-icon",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 63
+  },
+  __self: undefined
+}), "Spotify Login"), __jsx("a", {
+  className: "the-block-apple--large",
+  href: "http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login",
   __source: {
     fileName: _jsxFileName,
     lineNumber: 64
   },
   __self: undefined
-}, "Login"), __jsx("button", {
-  id: "register-back-btn",
+}, __jsx("i", {
+  className: "fa fa-apple block-icon",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 64
+  },
+  __self: undefined
+}), "Apple Login"), __jsx("button", {
+  id: "cancel3-btn",
   className: "the-block-btn--large clear",
   __source: {
     fileName: _jsxFileName,
     lineNumber: 65
   },
   __self: undefined
-}, "Back"));
+}, "Cancel"));
 
 const Panel = () => __jsx("div", {
   id: "login-panel",
@@ -611,6 +627,14 @@ function Index() {
       lineNumber: 12
     },
     __self: this
+  }), __jsx("link", {
+    href: "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+    rel: "stylesheet",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: this
   })), __jsx("img", {
     id: "tb-logo",
     src: "../static/assets/TB - FlameLogo.png",
@@ -651,20 +675,6 @@ function Index() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 21
-    },
-    __self: this
-  }), __jsx("script", {
-    src: "/static/spotify/functions/login.js",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 22
-    },
-    __self: this
-  }), __jsx("script", {
-    src: "/static/spotify/functions/app.js",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 23
     },
     __self: this
   }));
