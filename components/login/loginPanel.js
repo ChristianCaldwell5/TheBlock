@@ -50,7 +50,7 @@ const SignUp_p2 = () => (
             <option value="">Select City</option>
         </select>
         <input type="number" className="the-block-inp--large clear" name="age" placeholder="Enter Age..."></input>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="//geodata.solutions/includes/countrystatecity.js"></script>
         <button id="next2-btn" className="the-block-btn--large clear">Next</button>
         <button id="cancel2-btn" className="the-block-btn--large clear">Cancel</button>
@@ -61,7 +61,9 @@ const SignUp_p3 = () => (
         <h1 className="the-block-title">Connect to Music Service</h1>
         <hr id="login-hr"></hr>
         <a className="the-block-spotify--large" href="http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login"><i className="fa fa-spotify block-icon"></i>Spotify Login</a>
-        <a className="the-block-apple--large" href="http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login"><i className="fa fa-apple block-icon"></i>Apple Login</a>
+        <a className="the-block-apple--large" id="apple-login-btn" href="http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login"><i className="fa fa-apple block-icon"></i>Apple Login</a>
+        <script src="https://js-cdn.music.apple.com/musickit/v1/musickit.js"></script>
+        <script type="text/javascript" src="../../apple-login/musickit.js"></script>
         <button id="cancel3-btn" className="the-block-btn--large clear">Cancel</button>
     </div>
 );
