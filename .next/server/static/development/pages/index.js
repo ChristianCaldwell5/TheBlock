@@ -104,7 +104,11 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "/Users/chris/Documents/Capstone2/TheBlock/components/login/loginPanel.js";
+=======
+var _jsxFileName = "/var/www/html/TheBlock/components/login/loginPanel.js";
+>>>>>>> dev
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -212,8 +216,13 @@ const Login = () => __jsx("div", {
   __self: undefined
 }, "Back"));
 
+<<<<<<< HEAD
 const SignUp_p1 = () => __jsx("div", {
   id: "register1",
+=======
+const SignUp = () => __jsx("div", {
+  id: "register",
+>>>>>>> dev
   className: "hide-element",
   __source: {
     fileName: _jsxFileName,
@@ -261,6 +270,7 @@ const SignUp_p1 = () => __jsx("div", {
     lineNumber: 28
   },
   __self: undefined
+<<<<<<< HEAD
 }), __jsx("button", {
   id: "next1-btn",
   className: "the-block-btn--large clear",
@@ -428,23 +438,65 @@ const SignUp_p2 = () => __jsx("div", {
   },
   __self: undefined
 }, "Cancel"));
+=======
+}), __jsx("h1", {
+  className: "the-block-title",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 29
+  },
+  __self: undefined
+}, "Connect to Music Service"), __jsx("hr", {
+  id: "login-hr",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 30
+  },
+  __self: undefined
+}), __jsx("button", {
+  id: "login-submit-btn",
+  className: "the-block-btn--large clear",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 31
+  },
+  __self: undefined
+}, "Login"), __jsx("button", {
+  id: "register-back-btn",
+  className: "the-block-btn--large clear",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 32
+  },
+  __self: undefined
+}, "Back"));
+>>>>>>> dev
 
 const Panel = () => __jsx("div", {
   id: "login-panel",
   __source: {
     fileName: _jsxFileName,
+<<<<<<< HEAD
     lineNumber: 61
+=======
+    lineNumber: 37
+>>>>>>> dev
   },
   __self: undefined
 }, __jsx(Initial, {
   __source: {
     fileName: _jsxFileName,
+<<<<<<< HEAD
     lineNumber: 62
+=======
+    lineNumber: 38
+>>>>>>> dev
   },
   __self: undefined
 }), __jsx(Login, {
   __source: {
     fileName: _jsxFileName,
+<<<<<<< HEAD
     lineNumber: 63
   },
   __self: undefined
@@ -458,6 +510,15 @@ const Panel = () => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 65
+=======
+    lineNumber: 39
+  },
+  __self: undefined
+}), __jsx(SignUp, {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 40
+>>>>>>> dev
   },
   __self: undefined
 }));
@@ -477,7 +538,11 @@ const Panel = () => __jsx("div", {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "/Users/chris/Documents/Capstone2/TheBlock/components/login/slogan.js";
+=======
+var _jsxFileName = "/var/www/html/TheBlock/components/login/slogan.js";
+>>>>>>> dev
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -516,7 +581,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_login_loginPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/login/loginPanel */ "./components/login/loginPanel.js");
 /* harmony import */ var _components_login_slogan__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/login/slogan */ "./components/login/slogan.js");
+<<<<<<< HEAD
 var _jsxFileName = "/Users/chris/Documents/Capstone2/TheBlock/pages/index.js";
+=======
+var _jsxFileName = "/var/www/html/TheBlock/pages/index.js";
+>>>>>>> dev
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -611,7 +680,11 @@ function Index() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /Users/chris/Documents/Capstone2/TheBlock/pages/index.js */"./pages/index.js");
+=======
+module.exports = __webpack_require__(/*! /var/www/html/TheBlock/pages/index.js */"./pages/index.js");
+>>>>>>> dev
 
 
 /***/ }),

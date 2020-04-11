@@ -1,7 +1,8 @@
 var initial = document.getElementById('initial');
 var login = document.getElementById('login');
 var register1 = document.getElementById('register1');
-var register2 = document.getElementById('register2')
+var register2 = document.getElementById('register2');
+var register3 = document.getElementById('register3');
 
 //login option selected
 document.getElementById('login-btn').addEventListener('click', function() { 
@@ -42,3 +43,11 @@ document.getElementById('next1-btn').addEventListener('click', function() {
     register1.classList.add('hide-element');
     initial.classList.add('show-element--div');
  }, false);
+
+ //next button on register2 is selected
+ document.getElementById('next1-btn').addEventListener('click', function() { 
+   clearClass(register2);
+   clearClass(register3);
+   register2.classList.add('hide-element');
+   register3.classList.add('show-element--div');
+}, false);

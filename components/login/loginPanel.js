@@ -56,6 +56,15 @@ const SignUp_p2 = () => (
         <button id="cancel2-btn" className="the-block-btn--large clear">Cancel</button>
     </div>
 );
+const SignUp_p3 = () => (
+    <div id="register3" className="hide-element">
+        <h1 className="the-block-title">Connect to Music Service</h1>
+        <hr id="login-hr"></hr>
+        <a className="the-block-btn--large" href="http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login">Spotify Login</a>
+        <button id="login-submit-btn" className="the-block-btn--large clear">Login</button>
+        <button id="register-back-btn" className="the-block-btn--large clear">Back</button>
+    </div>
+);
 
 const Panel = () => (
     <div id="login-panel">
@@ -63,6 +72,7 @@ const Panel = () => (
         <Login></Login>
         <SignUp_p1></SignUp_p1>
         <SignUp_p2></SignUp_p2>
+        <SignUp_p3></SignUp_p3>
     </div>
 );
 

@@ -11,7 +11,7 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/Users/chris/Documents/Capstone2/TheBlock/components/login/loginPanel.js";
+var _jsxFileName = "/var/www/html/TheBlock/components/login/loginPanel.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -123,9 +123,9 @@ var Login = function Login() {
   }, "Back"));
 };
 
-var SignUp_p1 = function SignUp_p1() {
+var SignUp = function SignUp() {
   return __jsx("div", {
-    id: "register1",
+    id: "register",
     className: "hide-element",
     __source: {
       fileName: _jsxFileName,
@@ -173,175 +173,37 @@ var SignUp_p1 = function SignUp_p1() {
       lineNumber: 28
     },
     __self: this
-  }), __jsx("button", {
-    id: "next1-btn",
-    className: "the-block-btn--large clear",
+  }), __jsx("h1", {
+    className: "the-block-title",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 29
     },
     __self: this
-  }, "Next"), __jsx("button", {
-    id: "cancel1-btn",
-    className: "the-block-btn--large clear",
+  }, "Connect to Music Service"), __jsx("hr", {
+    id: "login-hr",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 30
     },
     __self: this
-  }, "Cancel"));
-};
-
-var SignUp_p2 = function SignUp_p2() {
-  return __jsx("div", {
-    id: "register2",
-    className: "hide-element",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 34
-    },
-    __self: this
-  }, __jsx("h1", {
-    className: "the-block-title",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 35
-    },
-    __self: this
-  }, "Demographic Info"), __jsx("hr", {
-    id: "login-hr",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36
-    },
-    __self: this
-  }), __jsx("select", {
-    defaultValue: "selectGender",
-    name: "gender",
-    className: "the-block-slct--large",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37
-    },
-    __self: this
-  }, __jsx("option", {
-    disabled: true,
-    value: "selectGender",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 38
-    },
-    __self: this
-  }, "Select Gender"), __jsx("option", {
-    value: "male",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39
-    },
-    __self: this
-  }, "Male"), __jsx("option", {
-    value: "female",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 40
-    },
-    __self: this
-  }, "Female"), __jsx("option", {
-    value: "other",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 41
-    },
-    __self: this
-  }, "Other")), __jsx("select", {
-    name: "country",
-    className: "countries the-block-slct--large",
-    id: "countryId",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 43
-    },
-    __self: this
-  }, __jsx("option", {
-    value: "",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 44
-    },
-    __self: this
-  }, "Select Country")), __jsx("select", {
-    name: "state",
-    className: "states the-block-slct--large",
-    id: "stateId",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 46
-    },
-    __self: this
-  }, __jsx("option", {
-    value: "",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 47
-    },
-    __self: this
-  }, "Select State")), __jsx("select", {
-    name: "city",
-    className: "cities the-block-slct--large",
-    id: "cityId",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 49
-    },
-    __self: this
-  }, __jsx("option", {
-    value: "",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 50
-    },
-    __self: this
-  }, "Select City")), __jsx("input", {
-    type: "number",
-    className: "the-block-inp--large clear",
-    name: "age",
-    placeholder: "Enter Age...",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 52
-    },
-    __self: this
-  }), __jsx("script", {
-    src: "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 53
-    },
-    __self: this
-  }), __jsx("script", {
-    src: "//geodata.solutions/includes/countrystatecity.js",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 54
-    },
-    __self: this
   }), __jsx("button", {
-    id: "next2-btn",
+    id: "login-submit-btn",
     className: "the-block-btn--large clear",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 31
     },
     __self: this
-  }, "Next"), __jsx("button", {
-    id: "cancel2-btn",
+  }, "Login"), __jsx("button", {
+    id: "register-back-btn",
     className: "the-block-btn--large clear",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 32
     },
     __self: this
-  }, "Cancel"));
+  }, "Back"));
 };
 
 var Panel = function Panel() {
@@ -394,7 +256,7 @@ var Panel = function Panel() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/Users/chris/Documents/Capstone2/TheBlock/components/login/slogan.js";
+var _jsxFileName = "/var/www/html/TheBlock/components/login/slogan.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -3416,15 +3278,18 @@ $JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function () {
   }
 });
 
-// 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
-$Symbol[PROTOTYPE][TO_PRIMITIVE] || __webpack_require__(/*! ./_hide */ "./node_modules/core-js/library/modules/_hide.js")($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
-// 19.4.3.5 Symbol.prototype[@@toStringTag]
-setToStringTag($Symbol, 'Symbol');
-// 20.2.1.9 Math[@@toStringTag]
-setToStringTag(Math, 'Math', true);
-// 24.3.3 JSON[@@toStringTag]
-setToStringTag(global.JSON, 'JSON', true);
+module.exports = __webpack_require__(/*! core-js/library/fn/set */ "./node_modules/core-js/library/fn/set.js");
 
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/symbol.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/symbol.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/symbol */ "./node_modules/core-js/library/fn/symbol/index.js");
 
 /***/ }),
 
@@ -3433,11 +3298,17 @@ setToStringTag(global.JSON, 'JSON', true);
   !*** ./node_modules/core-js/library/modules/es7.set.from.js ***!
   \**************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
 
 // https://tc39.github.io/proposal-setmap-offrom/#sec-set.from
 __webpack_require__(/*! ./_set-collection-from */ "./node_modules/core-js/library/modules/_set-collection-from.js")('Set');
 
+module.exports = _assertThisInitialized;
 
 /***/ }),
 
@@ -3446,11 +3317,12 @@ __webpack_require__(/*! ./_set-collection-from */ "./node_modules/core-js/librar
   !*** ./node_modules/core-js/library/modules/es7.set.of.js ***!
   \************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 // https://tc39.github.io/proposal-setmap-offrom/#sec-set.of
 __webpack_require__(/*! ./_set-collection-of */ "./node_modules/core-js/library/modules/_set-collection-of.js")('Set');
 
+module.exports = _classCallCheck;
 
 /***/ }),
 
@@ -3461,35 +3333,56 @@ __webpack_require__(/*! ./_set-collection-of */ "./node_modules/core-js/library/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-// https://github.com/DavidBruant/Map-Set.prototype.toJSON
-var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
+var _Object$defineProperty = __webpack_require__(/*! ../core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+
+    _Object$defineProperty(target, descriptor.key, descriptor);
+  }
+}
 
 $export($export.P + $export.R, 'Set', { toJSON: __webpack_require__(/*! ./_collection-to-json */ "./node_modules/core-js/library/modules/_collection-to-json.js")('Set') });
 
+module.exports = _inherits;
 
 /***/ }),
 
-/***/ "./node_modules/core-js/library/modules/es7.symbol.async-iterator.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/core-js/library/modules/es7.symbol.async-iterator.js ***!
-  \***************************************************************************/
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/iterableToArray.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/iterableToArray.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./_wks-define */ "./node_modules/core-js/library/modules/_wks-define.js")('asyncIterator');
+var _Array$from = __webpack_require__(/*! ../core-js/array/from */ "./node_modules/@babel/runtime-corejs2/core-js/array/from.js");
 
+var _isIterable = __webpack_require__(/*! ../core-js/is-iterable */ "./node_modules/@babel/runtime-corejs2/core-js/is-iterable.js");
+
+function _iterableToArray(iter) {
+  if (_isIterable(Object(iter)) || Object.prototype.toString.call(iter) === "[object Arguments]") return _Array$from(iter);
+}
+
+module.exports = _iterableToArray;
 
 /***/ }),
 
-/***/ "./node_modules/core-js/library/modules/es7.symbol.observable.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/core-js/library/modules/es7.symbol.observable.js ***!
-  \***********************************************************************/
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/nonIterableSpread.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/nonIterableSpread.js ***!
+  \**************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-__webpack_require__(/*! ./_wks-define */ "./node_modules/core-js/library/modules/_wks-define.js")('observable');
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
 
+module.exports = _nonIterableSpread;
 
 /***/ }),
 
@@ -3500,33 +3393,24 @@ __webpack_require__(/*! ./_wks-define */ "./node_modules/core-js/library/modules
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./es6.array.iterator */ "./node_modules/core-js/library/modules/es6.array.iterator.js");
-var global = __webpack_require__(/*! ./_global */ "./node_modules/core-js/library/modules/_global.js");
-var hide = __webpack_require__(/*! ./_hide */ "./node_modules/core-js/library/modules/_hide.js");
-var Iterators = __webpack_require__(/*! ./_iterators */ "./node_modules/core-js/library/modules/_iterators.js");
-var TO_STRING_TAG = __webpack_require__(/*! ./_wks */ "./node_modules/core-js/library/modules/_wks.js")('toStringTag');
+var arrayWithoutHoles = __webpack_require__(/*! ./arrayWithoutHoles */ "./node_modules/@babel/runtime-corejs2/helpers/arrayWithoutHoles.js");
 
-var DOMIterables = ('CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,' +
-  'DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,' +
-  'MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,' +
-  'SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,' +
-  'TextTrackList,TouchList').split(',');
+var iterableToArray = __webpack_require__(/*! ./iterableToArray */ "./node_modules/@babel/runtime-corejs2/helpers/iterableToArray.js");
 
-for (var i = 0; i < DOMIterables.length; i++) {
-  var NAME = DOMIterables[i];
-  var Collection = global[NAME];
-  var proto = Collection && Collection.prototype;
-  if (proto && !proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
-  Iterators[NAME] = Iterators.Array;
+var nonIterableSpread = __webpack_require__(/*! ./nonIterableSpread */ "./node_modules/@babel/runtime-corejs2/helpers/nonIterableSpread.js");
+
+function _toConsumableArray(arr) {
+  return arrayWithoutHoles(arr) || iterableToArray(arr) || nonIterableSpread();
 }
 
+module.exports = _toConsumableArray;
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2Fchris%2FDocuments%2FCapstone2%2FTheBlock%2Fpages%2Findex.js!./":
-/*!***********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2Fchris%2FDocuments%2FCapstone2%2FTheBlock%2Fpages%2Findex.js ***!
-  \***********************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2Fvar%2Fwww%2Fhtml%2FTheBlock%2Fpages%2Findex.js!./":
+/*!**************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2Fvar%2Fwww%2Fhtml%2FTheBlock%2Fpages%2Findex.js ***!
+  \**************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3975,7 +3859,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_login_loginPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/login/loginPanel */ "./components/login/loginPanel.js");
 /* harmony import */ var _components_login_slogan__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/login/slogan */ "./components/login/slogan.js");
-var _jsxFileName = "/Users/chris/Documents/Capstone2/TheBlock/pages/index.js";
+var _jsxFileName = "/var/www/html/TheBlock/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -4063,14 +3947,14 @@ function Index() {
 
 /***/ }),
 
-/***/ 1:
-/*!***************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fchris%2FDocuments%2FCapstone2%2FTheBlock%2Fpages%2Findex.js ***!
-  \***************************************************************************************************************************************/
+/***/ 2:
+/*!******************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fvar%2Fwww%2Fhtml%2FTheBlock%2Fpages%2Findex.js ***!
+  \******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fchris%2FDocuments%2FCapstone2%2FTheBlock%2Fpages%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2Fchris%2FDocuments%2FCapstone2%2FTheBlock%2Fpages%2Findex.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=%2Fvar%2Fwww%2Fhtml%2FTheBlock%2Fpages%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2Fvar%2Fwww%2Fhtml%2FTheBlock%2Fpages%2Findex.js!./");
 
 
 /***/ }),
