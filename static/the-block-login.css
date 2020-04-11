@@ -15,6 +15,7 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
+    max-height: 95vh;
     transform: translate(-50%, -50%);
 }
 #login-panel{
@@ -39,7 +40,7 @@ body{
     width: 90%;
 }
 .the-block-btn--large{
-    margin: 25px auto;
+    margin: 15px auto;
     background-color: rgba(245, 20, 31, 0.7);
     font-family: secondary;
     font-size: 3vh;
@@ -53,13 +54,25 @@ body{
     background-color: rgba(248, 84, 92, 0.7);
 }
 .the-block-inp--large{
-    margin: 25px auto;
+    margin: 15px auto;
     font-family: secondary;
     font-size: 3vh;
     padding: 10px;
     width: 75%;
     border: 2px solid  rgba(245, 20, 31, 0.7);
     border-radius: 10px;
+}
+.the-block-slct--large{
+    margin: 15px auto;
+    font-family: primary;
+    background-color: rgba(245, 20, 31, 0.7);
+    font-size: 3vh;
+    padding: 10px;
+    width: 80%;
+    cursor: pointer;
+}
+.slct-default{
+    color: white;
 }
 a{
     display: block;
