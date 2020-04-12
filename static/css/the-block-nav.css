@@ -1,0 +1,80 @@
+#nav{
+    background-color:rgba(245, 20, 31, 1);
+    width: 100%;
+    display: block;
+    border-bottom: 3px solid black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: 999;
+}
+#space-nav{
+    background-color:rgba(245, 20, 31, 0);
+    width: 100%;
+    display: block;
+    border-bottom: 3px solid black;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+#tb-nav-logo{
+    float: left;
+    width: 5%;
+    opacity: 0.4;
+    position: absolute;
+    padding: 0.15vh;
+    left: 0;
+}
+#nav-links{
+    margin: 0;
+    padding: 0;
+}
+#tb-nav-title{
+    display: block;
+    float: left;
+    font-family: primary;
+    font-size: 4vh;
+    padding: 0 2vh 0 2vh;
+    font-weight: bold;
+    cursor: pointer;
+    border-right: 1px solid black;
+    transition: 1s;
+}
+#tb-nav-title:hover{
+    background-color: rgba(243, 84, 92, 0.7);
+}
+.tb-nav-link{
+    display: block;
+    float: left;
+    font-family: secondary;
+    font-size: 4vh;
+    padding: 0 2vh 0 2vh;
+    font-weight: bold;
+    cursor: pointer;
+    border-right: 1px solid black;
+    color: white;
+    transition: 1s;
+}
+.tb-nav-link:hover{
+    background-color: rgba(243, 84, 92, 0.7);
+}
+.tb-nav-account{
+    display: block;
+    height: 100%;
+    float: right;
+    font-family: secondary;
+    font-size: 4vh;
+    padding: 0 2vh 0 2vh;
+    font-weight: bold;
+    cursor: pointer;
+    border-left: 1px solid black;
+    color: white;
+    transition: 1s;
+}
+.tb-nav-account:hover{
+    background-color: rgba(248, 84, 92, 0.7);
+}
