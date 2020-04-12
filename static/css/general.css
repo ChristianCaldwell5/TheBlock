@@ -1,11 +1,11 @@
 /* fonts */
 @font-face{
     font-family: primary;
-    src: url(fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf);
+    src: url(../fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf);
 }
 @font-face{
     font-family: secondary;
-    src: url(fonts/Roboto_Mono/RobotoMono-Regular.ttf);
+    src: url(../fonts/Roboto_Mono/RobotoMono-Regular.ttf);
 }
 /* 
 /* Animations */
@@ -30,6 +30,15 @@
     0%   {opacity: 0.20}
     50%  {opacity: 0.50}
     100% {opacity: 0.20}
+}
+
+body{
+    background-image: url(../assets/the-block-bg.v1.png);
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-color: rgba(233, 238, 242, 1);
+    margin: 0;
+    padding: 0;
 }
 
 /* Utility */

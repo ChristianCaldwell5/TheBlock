@@ -1,11 +1,3 @@
-body{
-    background-image: url(assets/the-block-bg.v1.png);
-    background-size: cover;
-    background-repeat: repeat-y;
-    background-color: rgba(233, 238, 242, 1);
-    margin: 0;
-    padding: 0;
-}
 /* -- DEFAULT STYLING -- */
 /* Login panel CSS */
 #login-container{
@@ -108,13 +100,6 @@ body{
     display: inline-block;
     font-size: 3vh;
 }
-a{
-    display: block;
-    font-family: primary;
-    width: 100%;
-    text-align: center;
-    margin: 10px auto;
-}
 #tb-logo{
     z-index: 0;
     position: fixed;
@@ -194,13 +179,6 @@ a{
     .the-block-btn--large:hover{
         background-color: rgba(248, 84, 92, 0.7);
     }
-    a{
-        display: block;
-        font-family: primary;
-        width: 100%;
-        text-align: center;
-        margin: 10px auto;
-    }
     #tb-logo{
         z-index: 0;
         position: fixed;
@@ -278,13 +256,6 @@ a{
     }
     .the-block-btn--large:hover{
         background-color: rgba(248, 84, 92, 0.7);
-    }
-    a{
-        display: block;
-        font-family: primary;
-        width: 100%;
-        text-align: center;
-        margin: 10px auto;
     }
     #tb-logo{
         z-index: 0;
