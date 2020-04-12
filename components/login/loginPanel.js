@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Initial = () => (
     <div id="initial">
@@ -6,7 +6,6 @@ const Initial = () => (
         <hr id="login-hr"></hr>
         <button id="login-btn" className="the-block-btn--large clear">Sign In</button>
         <button id="register-btn" className="the-block-btn--large clear">Register</button>
-        <a className="clear">About Us</a>
     </div>
 );
 const Login = () => (
