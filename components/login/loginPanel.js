@@ -11,35 +11,30 @@ const Initial = () => (
 );
 const Login = () => (
     <div id="login" className="hide-element">
-        <form action="">
             <h1 className="the-block-title">The Block - Login</h1>
             <hr id="login-hr"></hr>
             <input className="the-block-inp--large clear" name="l-username" placeholder="Username"></input>
             <input type="password" className="the-block-inp--large clear" name="l-password" placeholder="Password"></input>
-            <button type="submit" id="login-submit-btn" className="the-block-btn--large clear">Login</button>
+            <button id="login-submit-btn" className="the-block-btn--large clear">Login</button>
             <button id="login-back-btn" className="the-block-btn--large clear">Back</button>
-        </form>
     </div>
 );
 const SignUp_p1 = () => (
     <div id="register1" className="hide-element">
-        <form action="">
             <h1 className="the-block-title">The Block - Register</h1>
             <hr id="login-hr"></hr>
-            <input className="the-block-inp--large clear" name="username" placeholder="Create Username"></input>
-            <input type="password" className="the-block-inp--large clear" name="password" placeholder="Create Password"></input>
+            <input id="username-field" className="the-block-inp--large clear" name="username" placeholder="Create Username"></input>
+            <input id="password-field" type="password" className="the-block-inp--large clear" name="password" placeholder="Create Password"></input>
             <input type="password" className="the-block-inp--large clear" name="re-password" placeholder="Re-type Password"></input>
-            <button type="submit" id="next1-btn" className="the-block-btn--large clear">Next</button>
+            <button id="next1-btn" className="the-block-btn--large clear">Next</button>
             <button id="cancel1-btn" className="the-block-btn--large clear">Cancel</button>
-        </form>
     </div>
 );
 const SignUp_p2 = () => (
     <div id="register2" className="hide-element">
-        <form action="">
             <h1 className="the-block-title">Demographic Info</h1>
             <hr id="login-hr"></hr>
-            <select defaultValue="selectGender" name="gender" className="the-block-slct--large">
+            <select id="gender-field" defaultValue="selectGender" name="gender" className="the-block-slct--large">
                 <option disabled value="selectGender">Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -54,12 +49,11 @@ const SignUp_p2 = () => (
             <select name="city" className="cities the-block-slct--large" id="cityId">
                 <option value="">Select City</option>
             </select>
-            <input type="number" className="the-block-inp--large clear" name="age" placeholder="Enter Age..."></input>
+            <input id="age-field" type="number" className="the-block-inp--large clear" name="age" placeholder="Enter Age..."></input>
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
             <script src="//geodata.solutions/includes/countrystatecity.js"></script>
-            <button type="submit" id="next2-btn" className="the-block-btn--large clear">Next</button>
+            <button id="next2-btn" className="the-block-btn--large clear">Next</button>
             <button id="cancel2-btn" className="the-block-btn--large clear">Cancel</button>
-        </form>
     </div>
 );
 const SignUp_p3 = () => (
