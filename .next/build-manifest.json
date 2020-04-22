@@ -33,11 +33,10 @@
     "/home": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
+    ],
     "/index": [
-      "static/runtime/webpack-b65cab0b00afd201cbda.js",
-      "static/chunks/framework.ad13eced0f07a9df2bbe.js",
-      "static/chunks/commons.944eed1c6b46428131db.js",
-      "static/runtime/main-613c4cb8d860b9ec95a0.js"
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ]
   }
 }
