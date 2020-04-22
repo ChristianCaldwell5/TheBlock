@@ -1,0 +1,517 @@
+#home-info{
+    width: 100%;
+    overflow: auto;
+    position: relative;
+    text-align: center;
+}
+#home-infoimg{
+    width: 100%;
+    opacity: 0.5;
+}
+#info-wrapper{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+#banner{
+    width: 100%;
+    margin: 0;
+    position: relative;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2% 0 2% 0;
+}
+.banner-element-l{
+    width: 30%;
+    border-right: 1px solid rgba(255,255,255,0.8);
+    margin: auto;
+    text-align: center;
+}
+.banner-element-m{
+    width: 30%;
+    margin: auto;
+    text-align: center;
+}
+.banner-element-r{
+    width: 30%;
+    border-left: 1px solid rgba(255,255,255,0.8);
+    margin: auto;
+    text-align: center;
+}
+.banner-icon{
+    font-size: 5vh !important;
+    opacity: 1;
+    color: white;
+    margin: 3% auto;
+}
+.banner-hide{
+    display: none;
+}
+.banner-title{
+    display: block;
+    font-family: primary;
+    font-size: 3vh;
+    color: white;
+    margin: 2%;
+}
+.banner-desc{
+    font-family: secondary;
+    font-size: 2.5vh;
+    color: white;
+    margin: 2%;
+}
+#home-header{
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 10vh;
+    font-family: primary;
+    color: black;
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+}
+#home-header-secondary{
+    display: block;
+    width: 100%;
+    font-size: 5vh;
+    font-family: secondary;
+    color: white;
+    background-color: rgba(0,0,0,0.6);
+}
+#top-charts{
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 6vh;
+    font-family: primary;
+    color: black;
+}
+.bouncy-wrap{
+    display: block;
+    width: 100%;
+}
+.bouncy-arrow{
+    margin: 1% auto;
+    font-size: 5vh !important;
+    /* animation: bounce 3s infinite; */
+}
+
+@keyframes bounce {
+    0%{
+        margin-top: 0;
+    }
+    50%{
+        margin-top: 1%;
+    }
+    100%{
+        margin-top: 0;
+    }
+}
+/* hr taken from Knight Rider - James Delibas */
+hr{
+  display:block;
+  margin:0 auto;
+  opacity: 0.7;
+  height:15px;
+  width:200px;
+  border:none;
+  border-radius: 3px;
+  border-left:15px solid #f00000;
+  border-right:15px solid #300000;
+  animation: KITTAnim 1s infinite ease-in-out alternate;
+}
+
+hr:before{
+  content:" ";
+  display:inline-block;
+  width:5px;
+  height:15px;
+  border-left:15px solid #c00000;
+  border-right:15px solid #600000;
+  animation: KITTAnimBefore 1s infinite ease-in-out alternate;
+}
+
+hr:after{
+  content:" ";
+  display:inline-block;
+  width:75px;
+  height:15px;
+  border-left:15px solid #300000;
+  background-color:#300000;
+  border-right:15px solid #300000;
+  animation: KITTAnimAfter 1s infinite ease-in-out alternate;
+}
+
+hr:nth-child(even)
+{
+  animation: KARRAnim 1s infinite ease-in-out alternate;
+}
+
+hr:nth-child(even):after
+{
+  animation: KARRAnimAfter 1s infinite ease-in-out alternate;
+}
+
+hr:nth-child(even):before
+{
+  animation: KARRAnimBefore 1s infinite ease-in-out alternate;
+}
+
+/**
+    Keyframes
+Do not try at home
+
+**/
+
+
+@keyframes KITTAnim {
+    0% {
+       background-color:#300000;
+       border-left:15px solid #f00000;
+       border-right:15px solid #300000;
+    }
+    10% {
+       background-color:#300000;
+       border-left:15px solid #f00000;
+       border-right:15px solid #300000;
+    }
+    20% {
+       background-color:#300000;
+       border-left:15px solid #c00000;
+       border-right:15px solid #300000;
+    }
+    30% {
+       background-color:#300000;
+       border-left:15px solid #a00000;
+       border-right:15px solid #300000;
+    }
+    40% {
+       background-color:#300000;
+       border-left:15px solid #600000;
+       border-right:15px solid #300000;
+    }
+    50% {
+       background-color:#600000;
+       border-left:15px solid #300000;
+       border-right:15px solid #300000;
+    }
+    60% {
+       background-color:#a00000;
+       border-left:15px solid #300000;
+       border-right:15px solid #600000;
+    }
+    70% {
+       background-color:#c00000;
+       border-left:15px solid #300000;
+       border-right:15px solid #a00000;
+    }
+    80% {
+       background-color:#f00000;
+       border-left:15px solid #300000;
+       border-right:15px solid #c00000;
+    }
+    90% {
+       background-color:#c00000;
+       border-left:15px solid #300000;
+       border-right:15px solid #f00000;
+    }
+    100% {
+       background-color:#c00000;
+       border-left:15px solid #300000;
+       border-right:15px solid #f00000;
+    }
+ }
+ 
+ @keyframes KITTAnimBefore {
+    0% {
+       background-color:#a00000;
+       border-left:15px solid #c00000;
+       border-right:15px solid #600000;
+    }
+    10% {
+       background-color:#a00000;
+       border-left:15px solid #c00000;
+       border-right:15px solid #600000;
+    }
+    20% {
+       background-color:#c00000;
+       border-left:15px solid #f00000;
+       border-right:15px solid #a00000;
+    }
+    30% {
+       background-color:#f00000;
+       border-left:15px solid #c00000;
+       border-right:15px solid #c00000;
+    }
+    40% {
+       background-color:#c00000;
+       border-left:15px solid #a00000;
+       border-right:15px solid #f00000;
+    }
+    50% {
+       background-color:#a00000;
+       border-left:15px solid #600000;
+       border-right:15px solid #c00000;
+    }
+    60% {
+       background-color:#600000;
+       border-left:15px solid #300000;
+       border-right:15px solid #a00000;
+    }
+    70% {
+       background-color:#300000;
+       border-left:15px solid #300000;
+       border-right:15px solid #600000;
+    }
+    80% {
+       background-color:#300000;
+       border-left:15px solid #300000;
+       border-right:15px solid #300000;
+    }
+    90% {
+       background-color:#300000;
+       border-left:15px solid #300000;
+       border-right:15px solid #300000;
+    }
+    100% {
+       background-color:#300000;
+       border-left:15px solid #300000;
+       border-right:15px solid #300000;
+    }
+ }
+ 
+ @keyframes KITTAnimAfter {
+    0% {
+       background-color:#300000;
+       border-left:15px solid #300000;
+       border-right:15px solid #300000;
+    }
+    10% {
+       background-color:#300000;
+       border-left:15px solid #300000;
+       border-right:15px solid #300000;
+    }
+    20% {
+       background-color:#300000;
+       border-left:15px solid #600000;
+       border-right:15px solid #300000;
+    }
+    30% {
+       background-color:#600000;
+       border-left:15px solid #a00000;
+       border-right:15px solid #300000;
+    }
+    40% {
+       background-color:#a00000;
+       border-left:15px solid #c00000;
+       border-right:15px solid #600000;
+    }
+    50% {
+       background-color:#c00000;
+       border-left:15px solid #f00000;
+       border-right:15px solid #a00000;
+    }
+    60% {
+       background-color:#f00000;
+       border-left:15px solid #c00000;
+       border-right:15px solid #c00000;
+    }
+    70% {
+       background-color:#c00000;
+       border-left:15px solid #a00000;
+       border-right:15px solid #f00000;
+    }
+    80% {
+       background-color:#a00000;
+       border-left:15px solid #600000;
+       border-right:15px solid #c00000;
+    }
+    90% {
+       background-color:#600000;
+       border-left:15px solid #300000;
+       border-right:15px solid #a00000;
+    }
+    100% {
+       background-color:#600000;
+       border-left:15px solid #300000;
+       border-right:15px solid #a00000;
+    }
+ }
+ @keyframes KARRAnim {
+    0% {
+       background-color:#333300;
+       border-left:15px solid #ffff00;
+       border-right:15px solid #333300;
+    }
+    10% {
+       background-color:#333300;
+       border-left:15px solid #ffff00;
+       border-right:15px solid #333300;
+    }
+    20% {
+       background-color:#333300;
+       border-left:15px solid #cccc00;
+       border-right:15px solid #333300;
+    }
+    30% {
+       background-color:#333300;
+       border-left:15px solid #808000;
+       border-right:15px solid #333300;
+    }
+    40% {
+       background-color:#333300;
+       border-left:15px solid #4c4c00;
+       border-right:15px solid #333300;
+    }
+    50% {
+       background-color:#4c4c00;
+       border-left:15px solid #333300;
+       border-right:15px solid #333300;
+    }
+    60% {
+       background-color:#808000;
+       border-left:15px solid #333300;
+       border-right:15px solid #4c4c00;
+    }
+    70% {
+       background-color:#cccc00;
+       border-left:15px solid #333300;
+       border-right:15px solid #808000;
+    }
+    80% {
+       background-color:#ffff00;
+       border-left:15px solid #333300;
+       border-right:15px solid #cccc00;
+    }
+    90% {
+       background-color:#cccc00;
+       border-left:15px solid #333300;
+       border-right:15px solid #ffff00;
+    }
+    100% {
+       background-color:#cccc00;
+       border-left:15px solid #333300;
+       border-right:15px solid #ffff00;
+    }
+ }
+ 
+ @keyframes KARRAnimBefore {
+    0% {
+       background-color:#808000;
+       border-left:15px solid #cccc00;
+       border-right:15px solid #4c4c00;
+    }
+    10% {
+       background-color:#808000;
+       border-left:15px solid #cccc00;
+       border-right:15px solid #4c4c00;
+    }
+    20% {
+       background-color:#cccc00;
+       border-left:15px solid #ffff00;
+       border-right:15px solid #808000;
+    }
+    30% {
+       background-color:#ffff00;
+       border-left:15px solid #cccc00;
+       border-right:15px solid #cccc00;
+    }
+    40% {
+       background-color:#cccc00;
+       border-left:15px solid #808000;
+       border-right:15px solid #ffff00;
+    }
+    50% {
+       background-color:#808000;
+       border-left:15px solid #4c4c00;
+       border-right:15px solid #cccc00;
+    }
+    60% {
+       background-color:#4c4c00;
+       border-left:15px solid #333300;
+       border-right:15px solid #808000;
+    }
+    70% {
+       background-color:#333300;
+       border-left:15px solid #333300;
+       border-right:15px solid #4c4c00;
+    }
+    80% {
+       background-color:#333300;
+       border-left:15px solid #333300;
+       border-right:15px solid #333300;
+    }
+    90% {
+       background-color:#333300;
+       border-left:15px solid #333300;
+       border-right:15px solid #333300;
+    }
+    100% {
+       background-color:#333300;
+       border-left:15px solid #333300;
+       border-right:15px solid #333300;
+    }
+ }
+ 
+ @keyframes KARRAnimAfter {
+    0% {
+       background-color:#333300;
+       border-left:15px solid #333300;
+       border-right:15px solid #333300;
+    }
+    10% {
+       background-color:#333300;
+       border-left:15px solid #333300;
+       border-right:15px solid #333300;
+    }
+    20% {
+       background-color:#333300;
+       border-left:15px solid #4c4c00;
+       border-right:15px solid #333300;
+    }
+    30% {
+       background-color:#4c4c00;
+       border-left:15px solid #808000;
+       border-right:15px solid #333300;
+    }
+    40% {
+       background-color:#808000;
+       border-left:15px solid #cccc00;
+       border-right:15px solid #4c4c00;
+    }
+    50% {
+       background-color:#cccc00;
+       border-left:15px solid #ffff00;
+       border-right:15px solid #808000;
+    }
+    60% {
+       background-color:#ffff00;
+       border-left:15px solid #cccc00;
+       border-right:15px solid #cccc00;
+    }
+    70% {
+       background-color:#cccc00;
+       border-left:15px solid #808000;
+       border-right:15px solid #ffff00;
+    }
+    80% {
+       background-color:#808000;
+       border-left:15px solid #4c4c00;
+       border-right:15px solid #cccc00;
+    }
+    90% {
+       background-color:#4c4c00;
+       border-left:15px solid #333300;
+       border-right:15px solid #808000;
+    }
+    100% {
+       background-color:#4c4c00;
+       border-left:15px solid #333300;
+       border-right:15px solid #808000;
+    }
+ }
