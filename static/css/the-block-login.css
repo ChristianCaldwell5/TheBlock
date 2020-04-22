@@ -70,6 +70,7 @@
     transition: 1s;
     text-decoration: none;
     color: black;
+    display: inline-block;
 }
 .the-block-btn--large:hover{
     background-color: rgba(248, 84, 92, 0.7);
