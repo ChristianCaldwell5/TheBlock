@@ -20,14 +20,23 @@
   },
   "homepage": "https://github.com/ChristianCaldwell5/TheBlock#readme",
   "dependencies": {
-    "country-state-city": "^1.0.4",
+    "ajax": "0.0.4",
+    "ajax-request": "^1.2.3",
     "buffer": "^5.5.0",
+    "cors": "^2.8.5",
+    "country-state-city": "^1.0.4",
     "express": "^4.17.1",
+    "jquery": "^3.5.0",
+    "mysql": "^2.18.1",
     "next": "^9.2.2",
     "react": "^16.13.0",
     "react-country-region-selector": "^2.1.0",
     "react-dom": "^16.13.0",
     "react-signup-login-component": "^1.2.0",
-    "requestjs": "^1.0.3"
+    "request": "^2.88.2",
+    "requestjs": "^1.0.3",
+    "require": "^2.4.20",
+    "requirejs": "^2.3.6",
+    "webpack-dev-server": "^3.10.3"
   }
 }
