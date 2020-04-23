@@ -169,7 +169,7 @@ hr:nth-child(even):before
    font-size: 5vh;
    font-family: primary;
    text-align: center;
-   padding: 1%;
+   margin: 1% auto;
 }
 
 /**
