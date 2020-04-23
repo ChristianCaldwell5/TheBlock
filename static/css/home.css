@@ -7,6 +7,7 @@
 #home-infoimg{
     width: 100%;
     opacity: 0.5;
+    border-bottom: 3px solid black;
 }
 #info-wrapper{
     position: absolute;
@@ -162,10 +163,57 @@ hr:nth-child(even):before
   animation: KARRAnimBefore 1s infinite ease-in-out alternate;
 }
 
+#top-ten{
+   display: block;
+   width: 100%;
+   font-size: 5vh;
+   font-family: primary;
+   text-align: center;
+   padding: 1%;
+}
+
+/**
+   footer
+**/ 
+
+#footer-down{
+   width: 100%;
+   background-color:rgba(245, 20, 31, 1);
+   border-top: 3px solid black;
+   position: relative;
+   overflow: auto;
+}
+#footer-left-content{
+   padding: 1% 2% 1% 2%;
+   float: left;
+   width: 46%;
+   position: relative;
+}
+#footer-right-content{
+   padding: 1% 2% 1% 2%;
+   float: left;
+   width: 46%;
+   position: relative;
+}
+.left-content{
+   padding: 1% 0 1% 0;
+   display: block;
+   width: 100%;
+   text-align: left;
+   font-size: 2vh;
+   font-family: primary;
+}
+.right-content{
+   padding: 1% 0 1% 0;
+   display: block;
+   width: 100%;
+   text-align: right;
+   font-size: 2vh;
+   font-family: primary;
+}
+
 /**
     Keyframes
-Do not try at home
-
 **/
 
 
