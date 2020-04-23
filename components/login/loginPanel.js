@@ -24,7 +24,7 @@ const SignUp_p1 = () => (
             <hr id="login-hr"></hr>
             <input id="username-field" className="the-block-inp--large clear" name="username" placeholder="Create Username"></input>
             <input id="password-field" type="password" className="the-block-inp--large clear" name="password" placeholder="Create Password"></input>
-            <input type="password" className="the-block-inp--large clear" name="re-password" placeholder="Re-type Password"></input>
+            <input id="password-confirm" type="password" className="the-block-inp--large clear" name="re-password" placeholder="Re-type Password"></input>
             <button id="next1-btn" className="the-block-btn--large clear">Next</button>
             <button id="cancel1-btn" className="the-block-btn--large clear">Cancel</button>
     </div>
