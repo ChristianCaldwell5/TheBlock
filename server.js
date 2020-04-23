@@ -5,6 +5,8 @@ var cors = require("cors");
 app.use(express.static(__dirname)).use(cors())
 console.log("running");
 var savedUser;
+const jwt = require('jsonwebtoken');
+const fs = require('fs');
 
 app.get("/userPass",function(req,res){
 	console.log("begin");
@@ -31,7 +33,7 @@ app.get("/userPass",function(req,res){
 	connection.end();
 	/*if(!err){
 		console.log("work");
-	}	
+	}
 	else{
 		console.log("trash");
 	}*/
@@ -87,8 +89,23 @@ app.get("/setSpotifyToken",function(req,res){
 	});
 
 	res.send("{}");
-	connection.end();	
+	connection.end();
 });
+
+const private_key = fs.readFileSync('static/apple-login/apple_private_key.p8').toString();
+const team_id = '5N7B3W2HCH';
+const key_id = '34T327V9KS';
+const token = jwt.sign({}, private_key, {
+  algorithm: 'ES256',
+  expiresIn: '180d',
+  issuer: team_id,
+  header: {
+    alg: 'ES256',
+    kid: key_id
+  }
+});
+
+app.get('/appleToken', (req, res) => res.send(JSON.stringify({token: token})))
+
 app.listen(3001);
 console.log("listening on 3001...")
-	

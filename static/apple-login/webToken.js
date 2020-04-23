@@ -4,8 +4,8 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 app.use(cors());
-const hostname = '127.0.0.1';
-const port = 8000;
+const hostname = 'ec2-3-88-85-136.compute-1.amazonaws.com';
+const port = 3001;
 const publicDir =  __dirname;
 
 
@@ -13,11 +13,6 @@ const publicDir =  __dirname;
 // library for signing tokens
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
-
-// app.get('/', function (req, res) {
-//   res.sendFile(path.join(publicDir, '../../pages/index.js'));
-//   console.log("Hit 1.");
-// });
 
 const private_key = fs.readFileSync('apple_private_key.p8').toString();
 const team_id = '5N7B3W2HCH';
@@ -43,23 +38,7 @@ const token = jwt.sign({}, private_key, {
 // });
 
 app.get('/token', (req, res) => res.send(JSON.stringify({token: token})))
-// app.use(function(req, res) {
-// //   Website you wish to allow to connect
-// // res.setHeader('Access-Control-Allow-Origin', 'http://localhost');
-// //
-// // Request methods you wish to allow
-// // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-// //
-// // Request headers you wish to allow
-// // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-// //
-// // Set to true if you need the website to include cookies in the requests sent
-// // to the API (e.g. in case you use sessions)
-// // res.setHeader('Access-Control-Allow-Credentials', true);
-// });
-//.use(cors()
 
 app.use(express.static(publicDir));
 app.listen(port, hostname);
-console.log("Currently running.")
-//app.listen(port, hostname);
+console.log("Currently listening on ", port);
