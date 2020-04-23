@@ -19,6 +19,8 @@ export default function Index() {
         </div>
         <script src="/static/utility_script/login.js"></script>
         <script src="/static/utility_script/utility.js"></script>
+        <script src="https://js-cdn.music.apple.com/musickit/v1/musickit.js"></script>
+        <script src="/static/apple-login/appleAuthorize.js"></script>
       </div>
     );
 }
