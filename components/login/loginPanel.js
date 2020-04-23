@@ -60,9 +60,7 @@ const SignUp_p3 = () => (
         <h1 className="the-block-title">Connect to Music Service</h1>
         <hr id="login-hr"></hr>
         <a className="the-block-spotify--large" href="http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login"><i className="fa fa-spotify block-icon"></i>Spotify Login</a>
-        <a className="the-block-apple--large" id="apple-login-btn"><i className="fa fa-apple block-icon"></i>Apple Login</a>
-        <script src="https://js-cdn.music.apple.com/musickit/v1/musickit.js"></script>
-        <script type="text/javascript" src="../../apple-login/musickit.js"></script>
+        <button className="the-block-apple--large" id="apple-login-btn"><i className="fa fa-apple block-icon"></i>Apple Login</button>
         <button id="cancel3-btn" className="the-block-btn--large clear">Cancel</button>
     </div>
 );
