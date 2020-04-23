@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import Navbar from '../components/nav';
 import Spacer from '../components/spacer';
+import Charts from '../components/home/charts';
+import Footer from '../components/footer';
 
 export default function About() {
   return (
@@ -12,6 +14,7 @@ export default function About() {
         <link href="/static/css/the-block-login.css" rel="stylesheet" />
         <link href="/static/css/the-block-nav.css" rel="stylesheet" />
         <link href="/static/css/home.css" rel="stylesheet" />
+        <link href="/static/css/charts.css" rel="stylesheet" />
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
       </Head>
       <Spacer></Spacer>
@@ -48,10 +51,13 @@ export default function About() {
               </p>
             </div>
           </div>
-          <h2 id="top-charts">Our Top Charts</h2>
+          <h2 id="top-charts">Our Music Charts</h2>
           <span id="bouncy-wrap"><i className="fa fa-arrow-down bouncy-arrow"></i></span>
         </div>
       </div>
+      <span id='top-ten'>TOP 10 SONGS</span>
+      <Charts></Charts>
+      <Footer></Footer>
       <script src="/static/utility_script/utility.js"></script>
     </div>
   );
