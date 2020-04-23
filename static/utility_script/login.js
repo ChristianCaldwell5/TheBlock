@@ -13,6 +13,13 @@ document.getElementById('login-btn').addEventListener('click', function() {
     login.classList.add('show-element--div');
  }, false);
 
+document.getElementById('login-submit-btn').addEventListener('click',function(){
+    var username = document.getElementById('login-username-field').value;
+    var password = document.getElementById('login-password-field').value;
+
+    validateLogin(username,password);
+}, false);
+
 //back button on LOGIN option is selected
 document.getElementById('login-back-btn').addEventListener('click', function() { 
     clearClass(initial);
@@ -150,8 +157,7 @@ function validateDemoInput(gender,country,state,city,age){
 
 function validateUserPass(userName,passWord,passWord2){
 	
-	if(userName.length < 5 || userName.length > 20 || passWord < 7 || passWord.localeCompare(passWord2) != 0){
-		console.log("poopoo");
+	if(userName.length < 5 || userName.length > 20 || passWord.length < 7 || passWord.localeCompare(passWord2) != 0){
 		return false;
 	}
 	$.ajax({
@@ -174,6 +180,27 @@ function validateUserPass(userName,passWord,passWord2){
 		}
 	});
 	
+}
+
+function validateLogin(username,password){
+	if(username.length < 5 || username.length > 20 || password.length < 7){
+		return false;	 
+	}
+	$.ajax({
+		url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/validateLogin',
+		data:{
+			userName: username,
+			passWord: password
+		}
+	}).done(function(data){
+		console.log(data);
+		if(data == false){
+			
+			alert("Invalid login");
+		}else{
+		 	console.log('Big Dubs');
+		}
+	});
 }
 
 

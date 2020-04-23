@@ -12,8 +12,8 @@ const Login = () => (
     <div id="login" className="hide-element">
             <h1 className="the-block-title">The Block - Login</h1>
             <hr id="login-hr"></hr>
-            <input className="the-block-inp--large clear" name="l-username" placeholder="Username"></input>
-            <input type="password" className="the-block-inp--large clear" name="l-password" placeholder="Password"></input>
+            <input id="login-username-field" className="the-block-inp--large clear" name="l-username" placeholder="Username"></input>
+            <input id="login-password-field" type="password" className="the-block-inp--large clear" name="l-password" placeholder="Password"></input>
             <button id="login-submit-btn" className="the-block-btn--large clear">Login</button>
             <button id="login-back-btn" className="the-block-btn--large clear">Back</button>
     </div>
