@@ -3,7 +3,7 @@ var login = document.getElementById('login');
 var register1 = document.getElementById('register1');
 var register2 = document.getElementById('register2');
 var register3 = document.getElementById('register3');
-var username = 
+//var username = 
 
 //login option selected
 document.getElementById('login-btn').addEventListener('click', function() { 
@@ -33,11 +33,13 @@ document.getElementById('login-back-btn').addEventListener('click', function() {
 document.getElementById('next1-btn').addEventListener('click', function() { 
    var username = document.getElementById('username-field').value;
    var password = document.getElementById('password-field').value;
-   saveUserPass(username,password);
-   clearClass(register1);
+   var password2 = document.getElementById('password-confirm').value; 
+   validateUserPass(username,password,password2);
+	//have to do more here to make sure panel doesnt chagne on bad input 
+   /*clearClass(register1);
    clearClass(register2);
    register1.classList.add('hide-element');
-   register2.classList.add('show-element--div');
+   register2.classList.add('show-element--div');*/
 }, false);
 
  //cancel button on register1 option is selected
@@ -59,14 +61,22 @@ document.getElementById('next1-btn').addEventListener('click', function() {
 	var cityObj = document.getElementById('cityId');
 	var city = cityObj.options[cityObj.selectedIndex].value;
 	var age = document.getElementById('age-field').value;
+	
+	var valid = validateDemoInput(gender,country,state,city,age);	
+	if(valid){
+		saveDemographicInfo(gender,country,state,city,age);
+		clearClass(register2);
+   		clearClass(register3);
+   		register2.classList.add('hide-element');
+   		register3.classList.add('show-element--div');
+	}else{
+		alert("invalid input, please make sure all fields are filled out");
+	}
 
-
-	saveDemographicInfo(gender,country,state,city,age);
-
-   clearClass(register2);
+   /*clearClass(register2);
    clearClass(register3);
    register2.classList.add('hide-element');
-   register3.classList.add('show-element--div');
+   register3.classList.add('show-element--div');*/
 }, false);
 
 //cancel button on register2 option is selected
@@ -86,6 +96,8 @@ document.getElementById('cancel3-btn').addEventListener('click', function() {
 }, false);
 
 function saveUserPass(userName,passWord){
+
+	
 	$.ajax({
 		url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/userPass',
 		timeout: 10000000,
@@ -116,8 +128,52 @@ function saveDemographicInfo(gender,country,state,city,age){
 
 }
 
+function validateDemoInput(gender,country,state,city,age){
+	if(gender.localeCompare('selectGender') == 0){
+		console.log("booty gender");
+		return false;
+	}
+	if(country.localeCompare('') == 0){
+		return false;
+	}
+	if(state.localeCompare('') == 0){
+		return false;
+	}
+	if(city.localeCompare('') == 0){
+		return false;
+	}
+	if(age < 13 || age > 100){
+		return false;
+	}
+	return true;
+}
 
-
-
+function validateUserPass(userName,passWord,passWord2){
+	
+	if(userName.length < 5 || userName.length > 20 || passWord < 7 || passWord.localeCompare(passWord2) != 0){
+		console.log("poopoo");
+		return false;
+	}
+	$.ajax({
+		url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/validateUsername',
+		data: {
+			username: userName
+		}
+	}).done(function(data){	
+		console.log("done");
+		if(data == false){
+			console.log('booty username');
+			alert("The username you selected already exists, please login or try a different username");
+		}else{
+			console.log('valid username');
+			saveUserPass(userName,passWord);
+			clearClass(register1);
+			clearClass(register2);
+			register1.classList.add('hide-element');
+   			register2.classList.add('show-element--div');
+		}
+	});
+	
+}
 
 
