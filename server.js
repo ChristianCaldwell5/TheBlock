@@ -119,7 +119,11 @@ app.get("/setAppleToken",function(req,res){
 	var cookie = req.query.username;
 	var a = cookie.split("=");
 	var userName = a[1];
+	console.dir(userName);
+	console.log("test");
+	console.log(userName);
 	console.log(musicUserToken);
+	console.dir(musicUserToken);
 	connection.query("UPDATE usersTable SET token='"+musicUserToken+"' WHERE username='"+userName+"'", function(err,rows,fields){
 		if(err) throw err
 		console.log("saved token");
