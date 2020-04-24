@@ -104,6 +104,31 @@ app.get("/setSpotifyToken",function(req,res){
 	connection.end();
 });
 
+app.get("/setAppleToken",function(req,res){
+	console.log("starting token set");
+	var mysql = require('mysql');
+        var connection = mysql.createConnection({
+                host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+                user: 'capDBadmin',
+                password: 'CapDBMaster',
+                database: 'usersDB',
+                port: '3306'
+        });
+        connection.connect();
+	var musicUserToken = req.query.token;
+	var cookie = req.query.username;
+	var a = cookie.split("=");
+	var userName = a[1];
+	console.log(musicUserToken);
+	connection.query("UPDATE usersTable SET token='"+musicUserToken+"' WHERE username='"+userName+"'", function(err,rows,fields){
+		if(err) throw err
+		console.log("saved token");
+	});
+
+	res.send("{}");
+	connection.end();
+});
+
 const private_key = fs.readFileSync('static/apple-login/apple_private_key.p8').toString();
 const team_id = '5N7B3W2HCH';
 const key_id = '34T327V9KS';
@@ -117,7 +142,9 @@ const token = jwt.sign({}, private_key, {
   }
 });
 
-//return true on unique username 
+
+
+//return true on unique username
 app.get("/validateUsername",function(req,res){
 	var mysql = require('mysql');
         var connection = mysql.createConnection({
@@ -152,7 +179,7 @@ app.get("/validateUsername",function(req,res){
 			res.end();
 		}
 	});
-	connection.end();	
+	connection.end();
 });
 
 app.get("/validateLogin",function(req,res){
