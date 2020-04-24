@@ -127,7 +127,8 @@ function saveDemographicInfo(gender,country,state,city,age){
                         'country': country,
 			'state':  state,
 			'city': city,
-			'age': age
+			'age': age,
+			'username': document.cookie
                 }
         }).done(function(){
                 console.log("sent");
@@ -172,6 +173,7 @@ function validateUserPass(userName,passWord,passWord2){
 			alert("The username you selected already exists, please login or try a different username");
 		}else{
 			console.log('valid username');
+			document.cookie = "username=" + userName;
 			saveUserPass(userName,passWord);
 			clearClass(register1);
 			clearClass(register2);
@@ -199,6 +201,8 @@ function validateLogin(username,password){
 			alert("Invalid login");
 		}else{
 		 	console.log('Big Dubs');
+			document.cookie = "username=" + username;
+			window.location.href = "http://ec2-3-88-85-136.compute-1.amazonaws.com/home";
 		}
 	});
 }

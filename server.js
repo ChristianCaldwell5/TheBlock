@@ -2,12 +2,15 @@ var express = require("express");
 var app = express();
 var request = require("request");
 var cors = require("cors");
+var cookieParser = require('cookie-parser');
 app.use(express.static(__dirname)).use(cors())
+app.use(cookieParser());
 console.log("running");
 var savedUser;
 var secret = "420blazeit";
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
+
 
 app.get("/userPass",function(req,res){
 	console.log("begin");
@@ -22,10 +25,7 @@ app.get("/userPass",function(req,res){
 	connection.connect();
 	console.log("connected");
 	var userName = req.query.username;
-	var passWord = req.query.password;
-
-	savedUser = userName;
-
+	var passWord = req.query.password;	
 
 	connection.query("INSERT INTO usersTable(username,password) VALUES ('"+userName+"', AES_ENCRYPT('"+passWord+"','"+secret+"'))", function(err,rows,fields){
 
@@ -44,6 +44,7 @@ app.get("/userPass",function(req,res){
 
 app.get("/demographics", function(req,res){
 	console.log("saving demographic info");
+
 	var mysql = require('mysql');
         var connection = mysql.createConnection({
                 host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
@@ -60,11 +61,17 @@ app.get("/demographics", function(req,res){
 	var age = req.query.age;
 	var bandID = 0;
 	var isSpotify = 1;
-	var userName = savedUser;
+	var cookie = req.query.username;
+	var a = cookie.split("=");
+	var userName = a[1];
+	console.log(userName);
 
 	connection.query("UPDATE usersTable SET bandID='"+bandID+"', isSpotify='"+isSpotify+"', gender='"+gender+"', country='"+country+"', state='"+state+"', city='"+city+"', age='"+age+"' WHERE username='"+userName+"' ", function(err,rows,fields){
 		if(err) throw err
+		console.log("UPDATE usersTable SET bandID='"+bandID+"', isSpotify='"+isSpotify+"', gender='"+gender+"', country='"+country+"', state='"+state+"', city='"+city+"', age='"+age+"' WHERE username = '"+userName+"' ");
 		console.log("save complete");
+		console.log(rows);
+		console.log(fields);
 	});
 
 	res.send("it worked");
@@ -84,8 +91,11 @@ app.get("/setSpotifyToken",function(req,res){
         });
         connection.connect();
 	var access_token = req.query.access_token;
+	var refresh_token = req.query.refresh_token;
+	var username = req.query.username;
 	console.log(access_token);
-	connection.query("UPDATE usersTable SET token='"+access_token+"' WHERE username='"+savedUser+"'", function(err,rows,fields){
+	//need to update to set both tokens with correct username 
+	connection.query("UPDATE usersTable SET token='"+access_token+"', refreshToken='"+refresh_token+"' WHERE username='"+username+"'", function(err,rows,fields){
 		if(err) throw err
 		console.log("saved token");
 	});
