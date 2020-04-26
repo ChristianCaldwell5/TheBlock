@@ -1,12 +1,11 @@
 import React from 'react';
-import Link from 'next/link';
 import Head from 'next/head';
 import Navbar from '../components/nav';
 import Spacer from '../components/spacer';
 import Charts from '../components/home/charts';
 import Footer from '../components/footer';
 import * as request from '../static/operation-script/request_user.js'
-import * as utility from '../static/utility_script/utility.js'
+import * as utility from '../static/operation-script/account_op.js'
 
 //Begin request for account details
 var name = request.request_account_details('name');
