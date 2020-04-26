@@ -43,6 +43,7 @@
     cursor: pointer;
     border-right: 1px solid black;
     transition: 1s;
+    color: black;
 }
 #tb-nav-title:hover{
     background-color: rgba(243, 84, 92, 0.7);

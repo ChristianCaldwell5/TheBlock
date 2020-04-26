@@ -70,7 +70,7 @@
     text-align: center;
     margin: 0 auto;
     width: 100%;
-    font-size: 10vh;
+    font-size: 7vh;
     font-family: primary;
     color: black;
     text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
@@ -78,7 +78,7 @@
 #home-header-secondary{
     display: block;
     width: 100%;
-    font-size: 5vh;
+    font-size: 3vh;
     font-family: secondary;
     color: white;
     background-color: rgba(0,0,0,0.6);
@@ -88,7 +88,7 @@
     text-align: center;
     margin: 0 auto;
     width: 100%;
-    font-size: 6vh;
+    font-size: 4vh;
     font-family: primary;
     color: black;
 }
@@ -98,7 +98,7 @@
 }
 .bouncy-arrow{
     margin: 1% auto;
-    font-size: 5vh !important;
+    font-size: 4vh !important;
     /* animation: bounce 3s infinite; */
 }
 
@@ -165,6 +165,7 @@ hr:nth-child(even):before
 
 #top-ten{
    display: block;
+   float: left;
    width: 100%;
    font-size: 5vh;
    font-family: primary;
@@ -182,6 +183,7 @@ hr:nth-child(even):before
    border-top: 3px solid black;
    position: relative;
    overflow: auto;
+   overflow: hidden;
 }
 #footer-left-content{
    padding: 1% 2% 1% 2%;
@@ -202,6 +204,7 @@ hr:nth-child(even):before
    text-align: left;
    font-size: 2vh;
    font-family: primary;
+   z-index: 1;
 }
 .right-content{
    padding: 1% 0 1% 0;
@@ -210,6 +213,14 @@ hr:nth-child(even):before
    text-align: right;
    font-size: 2vh;
    font-family: primary;
+}
+.footer-img{
+   position: absolute;
+   z-index: 0;
+   opacity: 0.5;
+   left: 0;
+   width: 10%;
+   z-index: 0;
 }
 
 /**
