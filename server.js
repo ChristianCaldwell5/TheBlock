@@ -104,6 +104,48 @@ app.get("/setSpotifyToken",function(req,res){
 	connection.end();
 });
 
+app.get("/getSpotifyTokenPairs",function(req,res){
+	var mysql = require('mysql');
+        var connection = mysql.createConnection({
+                host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+                user: 'capDBadmin',
+                password: 'CapDBMaster',
+                database: 'usersDB',
+                port: '3306'
+        });
+        connection.connect();
+	connection.query("SELECT token, refreshToken FROM usersTable WHERE isSpotify='1'",function(err,rows,fields){
+		if(err) throw err
+		console.log(rows);
+		res.json(rows);
+	});
+	connection.end();
+});
+
+
+app.get("/updateTokenPairs",function(req,res){
+        var mysql = require('mysql');
+        var connection = mysql.createConnection({
+                host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+                user: 'capDBadmin',
+                password: 'CapDBMaster',
+                database: 'usersDB',
+                port: '3306'
+        });
+	var refresh_token = req.query.refresh_token;
+	var access_token = req.query.access_token;	
+        //console.log(access_token);
+	//console.log(refresh_token);
+	connection.connect();
+        connection.query("UPDATE usersTable SET token='"+access_token+"' WHERE refreshToken='"+refresh_token+"'",function(err,rows,fields){
+                if(err) throw err
+                //console.log(rows);
+        });
+        connection.end();
+});
+
+
+
 app.get("/setAppleToken",function(req,res){
 	console.log("starting token set");
 	var mysql = require('mysql');
@@ -124,7 +166,7 @@ app.get("/setAppleToken",function(req,res){
 	console.log(userName);
 	console.log(musicUserToken);
 	console.dir(musicUserToken);
-	connection.query("UPDATE usersTable SET token='"+musicUserToken+"' WHERE username='"+userName+"'", function(err,rows,fields){
+	connection.query("UPDATE usersTable SET token='"+musicUserToken+"', isSpotify='0' WHERE username='"+userName+"'", function(err,rows,fields){
 		if(err) throw err
 		console.log("saved token");
 	});
