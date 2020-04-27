@@ -52,11 +52,18 @@ app.get("/getUserInfo", function(req,res){
 			port: '3306'
 	});
 	connection.connect();
-	var username = req.query.username;
-	connection.query("SELECT username, city, state, country, age, isSpotify FROM usersTable WHERE username='"+username+"'",function(err,rows,fields){
+	//var cookie = req.query.username;
+        //var a = cookie.split("=");
+        //var username = a[1];
+        var username = req.query.userName;
+	console.log(username);
+
+	console.log(username);
+	connection.query("SELECT * FROM usersTable WHERE username='"+username+"'",function(err,rows,fields){
 			if(err) throw err
-			console.log(rows);
-			req.send(rows);
+			console.dir(rows);
+			console.dir(fields);
+			res.send(rows);
 	});
 	connection.end();
 }); 

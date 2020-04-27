@@ -18,6 +18,7 @@ var service = request.request_account_details('service');
 var success; //1 for valid input. Else, 0
 //edit request
 function editMade(){
+    request.account_request();
     success = request.change_account_details();
     if( success == 0 ){
         return;
@@ -35,7 +36,7 @@ function passwordChange(){
 
 export default function Account() {
     return(
-        <div onload={request.account_request}>
+        <div>
             <Head>
                 <title>The Block - Home</title>
                 <link href="/static/css/general.css" rel="stylesheet" />
@@ -106,9 +107,7 @@ export default function Account() {
             <span id='top-ten' className='top-border'>Your Top 10</span>
             <Charts></Charts>
             <Footer></Footer>
-            <script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
-            <script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
-            <script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script src="/static/utility_script/utility.js"></script>
             <script src='/static/operation-script/request_user.js'></script>
         </div>
