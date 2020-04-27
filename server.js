@@ -153,6 +153,7 @@ app.get("/validateUsername",function(req,res){
 		//console.log("hit");
 		var i;
 		var valid = true;
+		var badChar = new RegExp(/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/);
 		data = rows;
 		for(i=0;i<rows.length;i++){
 			//console.log(rows[i].username);
@@ -163,6 +164,11 @@ app.get("/validateUsername",function(req,res){
 				valid = false;
 				res.end();
 			}
+		}
+		if(badChar.test(userName) == true){
+			res.send(false);
+			valid = false;
+			res.end();
 		}
 		if(valid){
 			res.send(true);

@@ -10,22 +10,36 @@ document.addEventListener('musickitloaded', () => {
     });
 
     document.getElementById('apple-login-btn').addEventListener('click', () => {
-        music.authorize().then(musicUserToken => {
-            //console.log(`Authorized, music-user-token: ${musicUserToken}`);
-            //app.get('/setAppleToken', (req, res) => res.send(JSON.stringify({token: musicUserToken})))
+        // music.authorize().then(musicUserToken => {
+        //     //console.log(`Authorized, music-user-token: ${musicUserToken}`);
+        //     //app.get('/setAppleToken', (req, res) => res.send(JSON.stringify({token: musicUserToken})))
+        //     $.ajax({
+		    //          url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/setSpotifyToken',
+		    //          data:{
+			  //               'token': musicUserToken,
+        //               'username': document.cookie
+        //           }
+	      //     }).done(function(){
+		    //         console.log("send");
+	      //     });
+        //     window.location.href = "http://ec2-3-88-85-136.compute-1.amazonaws.com/home";
+        // });
+        music.authorize().then(function(result){
             $.ajax({
 		             url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/setSpotifyToken',
 		             data:{
-			                'token': musicUserToken,
+			                'token': result,
                       'username': document.cookie
                   }
 	          }).done(function(){
 		            console.log("send");
 	          });
-            window.location.href = "http://ec2-3-88-85-136.compute-1.amazonaws.com/home";
-        });
+              window.location.href = "http://ec2-3-88-85-136.compute-1.amazonaws.com/home";
+            }, function(err) {
+              console.log("Something went wrong! Please try again.");
+              window.alert("Whoops! Something went wrong. Please try again."); // Error: "It broke"
+            });
+            window.music = music;
     });
-
-    window.music = music;
 });
 });
