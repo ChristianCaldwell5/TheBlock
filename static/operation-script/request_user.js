@@ -1,10 +1,28 @@
 //Load information by database
+import React from 'react';
+import $ from 'jquery';
+
 var name = "Christian";
 var city = "Columbia";
 var state = "Missouri";
 var country = "United States of America";
 var age = "22"
 var service = "1" //1 = spotify. 0 = Apple
+export function account_request(){
+    $.ajax({
+        url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/getUserInfo',
+        data: {
+                'username': document.cookie
+        }
+    }).done(function(data){
+        name = data.username;
+        city = data.city;
+        state = data.state;
+        country = data.country;
+        age = data.age;
+        service = data.service;
+    });
+}
 
 export function request_account_details(x){
     if(x === 'name'){

@@ -42,6 +42,25 @@ app.get("/userPass",function(req,res){
 	res.send("it worked");
 });
 
+app.get("/getUserInfo", function(req,res){
+	var mysql = require('mysql');
+	var connection = mysql.createConnection({
+			host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+			user: 'capDBadmin',
+			password: 'CapDBMaster',
+			database: 'usersDB',
+			port: '3306'
+	});
+	connection.connect();
+	var username = req.query.username;
+	connection.query("SELECT username, city, state, country, age, isSpotify FROM usersTable WHERE username='"+username+"'",function(err,rows,fields){
+			if(err) throw err
+			console.log(rows);
+			req.send(rows);
+	});
+	connection.end();
+}); 
+
 app.get("/demographics", function(req,res){
 	console.log("saving demographic info");
 

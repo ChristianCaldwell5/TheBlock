@@ -35,7 +35,7 @@ function passwordChange(){
 
 export default function Account() {
     return(
-        <div>
+        <div onload={request.account_request}>
             <Head>
                 <title>The Block - Home</title>
                 <link href="/static/css/general.css" rel="stylesheet" />
@@ -106,7 +106,11 @@ export default function Account() {
             <span id='top-ten' className='top-border'>Your Top 10</span>
             <Charts></Charts>
             <Footer></Footer>
+            <script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+            <script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
+            <script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>
             <script src="/static/utility_script/utility.js"></script>
+            <script src='/static/operation-script/request_user.js'></script>
         </div>
     )
 }
