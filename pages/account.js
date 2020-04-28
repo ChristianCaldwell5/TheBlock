@@ -18,6 +18,7 @@ var service = request.request_account_details('service');
 var success; //1 for valid input. Else, 0
 //edit request
 function editMade(){
+    request.account_request();
     success = request.change_account_details();
     if( success == 0 ){
         return;
@@ -105,7 +106,9 @@ export default function Account() {
             <span id='top-ten' className='top-border'>Your Top 10</span>
             <Charts></Charts>
             <Footer></Footer>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script src="/static/utility_script/utility.js"></script>
+            <script src='/static/operation-script/request_user.js'></script>
         </div>
     )
 }

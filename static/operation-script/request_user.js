@@ -1,12 +1,51 @@
 //Load information by database
-var name = "Christian";
-var city = "Columbia";
-var state = "Missouri";
-var country = "United States of America";
-var age = "22"
-var service = "1" //1 = spotify. 0 = Apple
+import React from 'react';
+import Cookies from 'js-cookie';
+
+var name = Cookies.get("username");
+var city = Cookies.get("city");
+var state = Cookies.get("state");
+var country = Cookies.get("country");
+var age = Cookies.get("age");
+var service = Cookies.get("service");
+
+export function account_request(cookie){
+    /*console.log(cookie);
+    $.ajax({
+        url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/getUserInfo',
+        data: {
+                'username': cookie
+        }
+    }).done(function(data){
+	console.dir(data);
+        name = data.username;
+        city = data.city;
+        state = data.state;
+        country = data.country;
+        age = data.age;
+        service = data.service;
+    });*/
+}
+
+export function getUserInfo(){
+	/*var cookie = Cookies.get('username');
+	console.log("cookie: " + cookie);
+	username = cookie;
+	axios({
+        url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/getUserInfo',
+        method: 'get',
+        data:{
+                userName: username
+        }
+    	}).then(function(response) {
+        	console.dir(response);
+   	});*/
+
+}
 
 export function request_account_details(x){
+     var username = Cookies.get('username');
+
     if(x === 'name'){
         return name
     }

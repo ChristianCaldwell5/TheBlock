@@ -42,6 +42,31 @@ app.get("/userPass",function(req,res){
 	res.send("it worked");
 });
 
+app.get("/getUserInfo", function(req,res){
+	var mysql = require('mysql');
+	var connection = mysql.createConnection({
+			host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+			user: 'capDBadmin',
+			password: 'CapDBMaster',
+			database: 'usersDB',
+			port: '3306'
+	});
+	connection.connect();
+	//var cookie = req.query.userName;
+        //var a = cookie.split("=");
+        //var username = a[1];
+        var username = req.query.userName;
+	console.log(username);
+
+	connection.query("SELECT * FROM usersTable WHERE username='"+username+"'",function(err,rows,fields){
+			if(err) throw err
+			console.dir(rows);
+			console.dir(fields);
+			res.send(rows);
+	});
+	connection.end();
+}); 
+
 app.get("/demographics", function(req,res){
 	console.log("saving demographic info");
 
@@ -62,8 +87,9 @@ app.get("/demographics", function(req,res){
 	var bandID = 0;
 	var isSpotify = 1;
 	var cookie = req.query.username;
-	var a = cookie.split("=");
-	var userName = a[1];
+	//var a = cookie.split("=");
+	//var userName = a[1];
+	var userName = cookie.replace(/(?:(?:^|.*;\s*)username\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 	console.log(userName);
 
 	connection.query("UPDATE usersTable SET bandID='"+bandID+"', isSpotify='"+isSpotify+"', gender='"+gender+"', country='"+country+"', state='"+state+"', city='"+city+"', age='"+age+"' WHERE username='"+userName+"' ", function(err,rows,fields){
@@ -75,6 +101,7 @@ app.get("/demographics", function(req,res){
 	});
 
 	res.send("it worked");
+	
 	connection.end();
 
 });
@@ -99,7 +126,6 @@ app.get("/setSpotifyToken",function(req,res){
 		if(err) throw err
 		console.log("saved token");
 	});
-
 	res.send("{}");
 	connection.end();
 });
@@ -170,7 +196,7 @@ app.get("/setAppleToken",function(req,res){
 		if(err) throw err
 		console.log("saved token");
 	});
-
+	
 	res.send("{}");
 	connection.end();
 });

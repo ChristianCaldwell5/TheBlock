@@ -1,4 +1,5 @@
 import React from 'react';
+import * as request from '../static/operation-script/request_user.js'
 import Link from 'next/link'
 
 const Navbar = () => (
@@ -11,7 +12,7 @@ const Navbar = () => (
                 <a className="tb-nav-link">Explore</a>
             </Link>
             <Link href='/account'>
-                <a className="tb-nav-account"><i className="fa fa-user block-icon"></i></a>
+                <a className="tb-nav-account" onClick={request.getUserInfo}><i className="fa fa-user block-icon"></i></a>
             </Link>
         </ul>
     </nav> 
