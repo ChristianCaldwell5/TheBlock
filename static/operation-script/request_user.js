@@ -1,18 +1,16 @@
 //Load information by database
 import React from 'react';
-import $ from 'jquery';
-//import ajax from 'jquery';
 import Cookies from 'js-cookie';
-import axios from 'axios';
 
-var name;// = "Christian";
-var city;// = "Columbia";
-var state;// = "Missouri";
-var country;// = "United States of America";
-var age;// = "22"
-var service;// = "1" //1 = spotify. 0 = Apple
+var name = Cookies.get("username");
+var city = Cookies.get("city");
+var state = Cookies.get("state");
+var country = Cookies.get("country");
+var age = Cookies.get("age");
+var service = Cookies.get("service");
+
 export function account_request(cookie){
-    console.log(cookie);
+    /*console.log(cookie);
     $.ajax({
         url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/getUserInfo',
         data: {
@@ -26,39 +24,27 @@ export function account_request(cookie){
         country = data.country;
         age = data.age;
         service = data.service;
-    });
+    });*/
 }
 
+export function getUserInfo(){
+	/*var cookie = Cookies.get('username');
+	console.log("cookie: " + cookie);
+	username = cookie;
+	axios({
+        url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/getUserInfo',
+        method: 'get',
+        data:{
+                userName: username
+        }
+    	}).then(function(response) {
+        	console.dir(response);
+   	});*/
+
+}
 
 export function request_account_details(x){
      var username = Cookies.get('username');
-     console.log(username);
-     /*$.ajax({
-        url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/getUserInfo',
-        data: {
-                'username': username
-        }
-    }).done(function(data){
-        console.dir(data);
-        name = data.username;
-        city = data.city;
-        state = data.state;
-        country = data.country;
-        age = data.age;
-        service = data.service;
-    });
-    console.log("ajax ran");*/
-
-     //better than above 
-    /*axios({
-	url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/getUserInfo',
-	method: 'get',
-	data:{
-		userName: username
-	}
-    }).then(function(response) {
-	console.dir(response);
-    });*/
 
     if(x === 'name'){
         return name

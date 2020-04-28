@@ -52,13 +52,12 @@ app.get("/getUserInfo", function(req,res){
 			port: '3306'
 	});
 	connection.connect();
-	//var cookie = req.query.username;
+	//var cookie = req.query.userName;
         //var a = cookie.split("=");
         //var username = a[1];
         var username = req.query.userName;
 	console.log(username);
 
-	console.log(username);
 	connection.query("SELECT * FROM usersTable WHERE username='"+username+"'",function(err,rows,fields){
 			if(err) throw err
 			console.dir(rows);
@@ -88,8 +87,9 @@ app.get("/demographics", function(req,res){
 	var bandID = 0;
 	var isSpotify = 1;
 	var cookie = req.query.username;
-	var a = cookie.split("=");
-	var userName = a[1];
+	//var a = cookie.split("=");
+	//var userName = a[1];
+	var userName = cookie.replace(/(?:(?:^|.*;\s*)username\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 	console.log(userName);
 
 	connection.query("UPDATE usersTable SET bandID='"+bandID+"', isSpotify='"+isSpotify+"', gender='"+gender+"', country='"+country+"', state='"+state+"', city='"+city+"', age='"+age+"' WHERE username='"+userName+"' ", function(err,rows,fields){
@@ -101,6 +101,7 @@ app.get("/demographics", function(req,res){
 	});
 
 	res.send("it worked");
+	
 	connection.end();
 
 });
@@ -125,7 +126,6 @@ app.get("/setSpotifyToken",function(req,res){
 		if(err) throw err
 		console.log("saved token");
 	});
-
 	res.send("{}");
 	connection.end();
 });
@@ -196,7 +196,7 @@ app.get("/setAppleToken",function(req,res){
 		if(err) throw err
 		console.log("saved token");
 	});
-
+	
 	res.send("{}");
 	connection.end();
 });
