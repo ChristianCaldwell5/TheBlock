@@ -5,19 +5,22 @@ const ac = ['/static/assets/songs/wil.jpeg', '/static/assets/songs/ameh.webp', '
 const name = ['What I Like', '@ MEH', "CAN'T STOP", 'Silly Watch', 'SKYBOX', 'GET OUT', "AIN'T NO DOUBTS", 'Consistent', 'Never Legit', 'Quarantine Clean'];
 const artist = ['Famous Dex', 'Playboi Carti', 'DaBaby', 'Lil Uzi Vert', 'Gunna', 'Comethazine', 'Rich the Kid', 'Lil Baby', 'Lil Gotit', 'Gunna'];        
 const songs = [];
+
 for (const [index, value] of ac.entries()) {
-    songs.push(<div className="song-wrap" key={index}>
-                <span className="song-rank">{index+1}.</span>
-                <img className="song-pic" src={ac[index]} alt='Asset Failed'></img>
-                <span className="song-title">{name[index]}</span>
-                <span className="song-artist">{artist[index]}</span>
+    songs.push(<div className="explore-song" key={index}>
+                <span className='song-rank'>{index+1}.</span>
+                <img className="song-cover" src={ac[index]} alt='Asset Failed'></img>
+                <div className='song-detail-wrapper'>
+                    <span className="song-detail-primary">{name[index]}</span>
+                    <span className="song-detail-secondary">{artist[index]}</span>
+                </div>
                </div>)
 }
 
-const Charts = () => (
-    <div id="song-flex">
+const Echart = () => (
+    <div id="explore-container">
         {songs}
     </div>
 )
 
-export default Charts;
+export default Echart;
