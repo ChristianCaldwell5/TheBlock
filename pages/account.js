@@ -84,7 +84,6 @@ export default function Account() {
                     </div>
                 </div>
             </div>
-            <span id='account-page'>Account:</span>
             <div id='account-info'>
                 <div id='account-pic-wrap'>
                     <img id='account-img' src='/static/assets/default-user-image.png' alt='no user photo'></img>
