@@ -11,7 +11,10 @@ var data;
 
 var app = express();
 
-/*cron.schedule("15 * * * * *", function(){
+var sUD = [];
+var songs = [];
+
+cron.schedule("15 * * * * *", function(){
 	console.log("-----------------");
 	console.log("Running Scheduled Job");
 	
@@ -26,19 +29,139 @@ var app = express();
         connection.connect();
 	
 
+	var spotifyTokens = [];
+	var appleTokens = [];
+	//var songs = [];
 	
 	//select access tokens where service = spotify 
-	connection.query("");
+	connection.query("SELECT token FROM usersTable WHERE isSpotify='1'", function(err,rows,fields){
+		if(err) throw err
+		console.log("spotify tokens");
+		console.dir(rows);
+		spotifyTokens = rows;
+	});
+	connection.query("SELECT * FROM usersTable WHERE isSpotify='1'", function(err,rows,fields){
+                if(err) throw err
+                console.log("spotify info");
+                console.dir(rows);
+		console.log(rows.length);
+                sUD = rows;
+		console.log(sUD[1].gender);
+		console.log(sUD[1].username);
+        });
 
-	console.log("Done!");
+	//get apple tokens
+	connection.query("SELECT token FROM usersTable WHERE isSpotify='0'", function(err, rows, fields){
+		if(err) throw err
+		console.log("apple tokens");
+		console.dir(rows);
+	});
+	console.log("Tokens acquired");
 	
-});*/
+	var data;
+	setTimeout(function(){
+		var i;	
+		for(i=0;i<spotifyTokens.length;i++){
+			console.log("off to spotify");
+			console.log(spotifyTokens.length);
+			const options = {
+				url: 'https://api.spotify.com/v1/me/top/tracks?limit=50',
+				headers: {
+			 	"Authorization": "Bearer " + spotifyTokens[i].token
+				},
+			}
+			connection.query("DELETE FROM songsTable",function(err,rows,fields){
+                                        if(err) throw err
+                        });
+
+			request.get(options,function(error,response,body){
+				data = JSON.parse(body);
+				console.log(data.items[0].external_ids.isrc);
+				console.log(data.items.length);
+			        //songs = data;
+			       	console.log("hit");
+				setSongs(data);	
+			});
+			/*setTimeout(function(){
+				console.log("after");
+				//console.dir(songs);
+				console.dir(sUD);
+				
+				console.log(sUD[0].age);
+				var j;
+                                for(j=0;j<songs.items.length;j++){
+					console.log(i);
+					console.log(j);
+                                        //console.log(data.item[j].name);
+                                        //console.log(data.items[j].external_ids.isrc);
+                                        //console.log(data.items[j].album.images[0].url);
+                                        //console.log(data.items[j].artists[0].name);
+                                        //console.dir(songs.items);
+                                        console.log(sUD[i].gender);
+					console.log(sUD[i].age);
+                                        connection.query("INSERT INTO songsTable(name, artist, image, isrc, popularity, age, gender,country,state,city) VALUES ('"+songs.items[j].name+"', '"+songs.items[j].artists[0].name+"', '"+songs.items[j].album.images[0].url+"','"+songs.items[j].external_ids.isrc+"', '0', '"+sUD[i].age+"', '"+sUD[i].gender+"', '"+sUD[i].country+"', '"+sUD[i].state+"', '"+sUD[i].city+"')",function(err,rows,fields){
+                                        if(err) throw err
+                                });
+                                }
+					
+			},5000);*/
+		}//for loop ends
+		setTimeout(function(){
+		var i;
+		var j;
+		sUD.reverse();
+		for(i=0;i<sUD.length;i++){
+			for(j=0;j<songs[i].items.length;j++){
+				 	console.log(i);
+                                        console.log(j);
+                                        //console.log(data.item[j].name);
+                                        //console.log(data.items[j].external_ids.isrc);
+                                        //console.log(data.items[j].album.images[0].url);
+                                        //console.log(data.items[j].artists[0].name);
+                                        //console.dir(songs.items);
+                                        console.log(sUD[i].age);
+                                        console.log(songs[i].items[j].name);
+					if(songs[i].items[j].artists[0].name.includes("'")){
+						songs[i].items[j].artists[0].name = songs[i].items[j].artists[0].name.replace("'","''");
+					}
+					if(songs[i].items[j].name.includes("'")){
+                                                songs[i].items[j].name = songs[i].items[j].name.replace("'","''");
+                                        }
+
+                                        connection.query("INSERT INTO songsTable(name, artist, image, isrc, popularity, age, gender,country,state,city) VALUES ('"+songs[i].items[j].name+"', '"+songs[i].items[j].artists[0].name+"', '"+songs[i].items[j].album.images[0].url+"','"+songs[i].items[j].external_ids.isrc+"', '0', '"+sUD[i].age+"', '"+sUD[i].gender+"', '"+sUD[i].country+"', '"+sUD[i].state+"', '"+sUD[i].city+"')",function(err,rows,fields){
+                                        if(err) throw err
+                                });	
+			}
+		}
+		},15000);
+		console.log("done");
+	},10000);
+
+	
+	
+});
+
+function setsUD(data){
+	sUD = data;
+}
+
+function setSongs(data){
+	console.log(songs.length);
+	if(songs.length == 0){
+		console.log("length=0");
+		songs[0] = data;
+	}else{
+		songs[songs.length] = data;
+	}
+	console.dir(songs);
+}
+
 var numUsers;
 var refresh_tokens = [];
 var access_tokens = [''];
 
 //refresh spotify tokens
-cron.schedule("* 0 * * * *", function(){
+cron.schedule("45 * * * * *", function(){
 	//var refresh_tokens = [];
         //var access_tokens = [];
 	
