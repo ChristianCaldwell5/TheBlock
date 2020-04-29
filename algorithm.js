@@ -142,86 +142,86 @@ var songs = [];
 // });
 
 cron.schedule("15 * * * * *", function(){
-	console.log("-----------------");
-	console.log("Running Scheduled Job");
+		console.log("-----------------");
+		console.log("Running Scheduled Job");
 
-	var mysql = require('mysql');
-  var connection = mysql.createConnection({
-  	host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
-    user: 'capDBadmin',
-    password: 'CapDBMaster',
-    database: 'usersDB',
-    port: '3306'
-  });
-  connection.connect();
+		var mysql = require('mysql');
+  	var connection = mysql.createConnection({
+  		host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+    	user: 'capDBadmin',
+    	password: 'CapDBMaster',
+    	database: 'usersDB',
+    	port: '3306'
+  	});
+  	connection.connect();
 
-	var albumIDs = [];
-	var songIDs = [];
-  var artistName = [];
-  var artwork = [];
-  var name = [];
-	var appleMusicToken = [];
-	var appleDevToken = [];
+		var albumIDs = [];
+		var songIDs = [];
+  	var artistName = [];
+  	var artwork = [];
+  	var name = [];
+		var appleMusicToken = [];
+		var appleDevToken = [];
 
-	connection.query("SELECT token, refreshToken FROM usersTable WHERE isSpotify='0'", function(err, rows, fields){
-		if(err) throw err
-		console.log("apple tokens");
-		console.dir(rows);
-		var x;
-		for(x=0; x < rows.length; x++){
-			appleMusicToken[x] = rows[x].token;
-			appleDevToken[x] = rows[x].refreshToken;
-			console.log(appleMusicToken[x]);
-			console.log(appleDevToken[x]);
+		connection.query("SELECT token, refreshToken FROM usersTable WHERE isSpotify='0'", function(err, rows, fields){
+			if(err) throw err
+			console.log("apple tokens");
+			console.dir(rows);
+			var x;
+			for(x=0; x < rows.length; x++){
+				appleMusicToken[x] = rows[x].token;
+				appleDevToken[x] = rows[x].refreshToken;
+				console.log(appleMusicToken[x]);
+				console.log(appleDevToken[x]);
 
-			var i, j, stop;
-	    for(i=0; i<50; i+=10){
-	      j = i + x*50;
-	      stop = j+10;
-		var options = {
-			 url: "https://api.music.apple.com/v1/me/library/recently-added?offset=" + i,
-                	async: false,
-                	headers:{
-                	  'Music-User-Token' : appleMusicToken[x],
-                	  "Authorization": "Bearer " + appleDevToken[x]
-                	}
-		}
-		request.get(options, function(error,response,body){
-			var k = 0;
-                        //console.log(response);
-                        var data = JSON.parse(body);
-                        console.dir(data);
-                    	while(j<stop){
-                      		albumIDs[j] = data.data[k].id;
-                                console.dir(albumIDs[j]);
-                      		j++;
-                      		k++;
-                    	}
-
-		});
-
-
-	      /*ajaxrequest({
-	        url: "https://api.music.apple.com/v1/me/library/recently-added?offset=" + i,
-	        async: false,
-	        headers:{
-	          'Music-User-Token' : appleMusicToken[x],
-	          "Authorization": "Bearer " + appleDevToken[x]
-	        }
-	        }, function(err, res, body){
-	          	var k = 0;
-			console.log(res);
-			console.dir(body);
-	            while(j<stop){
-	              albumIDs[j] = body.responseJSON.data[k].id;
-								console.dir(albumIDs[j]);
-	              j++;
-	              k++;
-	            }
-		  
-	        });*/
+				var i, j, stop;
+	    	for(i=0; i<50; i+=10){
+	      	j = i + x*50;
+	      	stop = j+10;
+					var options = {
+			 			url: "https://api.music.apple.com/v1/me/library/recently-added?offset=" + i,
+          	async: false,
+          	headers:{
+          		'Music-User-Token' : appleMusicToken[x],
+              "Authorization": "Bearer " + appleDevToken[x]
+          	}
+					}
+					request.get(options, function(error,response,body){
+						var k = 0;
+        		var data = JSON.parse(body);
+        		console.dir(data);
+        		while(j<stop){
+          		albumIDs[j] = data.data[k].id;
+            	console.dir(albumIDs[j]);
+            	j++;
+            	k++;
+        		}
+					});
+				}
 			}
-		}
+
+		for(i=0; i<50; i++){
+			var options = {
+				url: 'https://api.music.apple.com/v1/me/library/albums/' + albumIDs[i],
+				async: false,
+				headers:{
+					'Music-User-Token' : music.musicToken,
+					"Authorization": "Bearer " + music.developerToken
+				}
+			}
+      request.get(options, function(error,response,body){
+				console.log(i);
+        songIDs[i] = body.responseJSON.data[0].relationships.tracks.data[0].id;
+        console.log('Song ID: ' + songIDs[i]);
+        name[i] = body.responseJSON.data[0].relationships.tracks.data[0].attributes.name;
+        console.log('Name: ' + name[i]);
+        artistName[i] = body.responseJSON.data[0].relationships.tracks.data[0].attributes.artistName;
+        console.log('Artist: ' + artistName[i]);
+        artwork[i] = body.responseJSON.data[0].relationships.tracks.data[0].attributes.artwork.url;
+        artwork[i] = artwork[i].replace("{w}x{h}", "640x640");
+        console.log('Art: ' + artwork[i]);
+			});
+    }
 	});
 
 	connection.query("SELECT * FROM usersTable WHERE isSpotify='0'", function(err,rows,fields){
@@ -233,9 +233,6 @@ cron.schedule("15 * * * * *", function(){
 		console.log(sUD[1].gender);
 		console.log(sUD[1].username);
   });
-
-
-
 });
 
 function setsUD(data){
