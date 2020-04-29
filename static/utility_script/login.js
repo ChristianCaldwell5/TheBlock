@@ -24,7 +24,7 @@ document.getElementById('spotify-button').addEventListener('click',function(){
 	document.cookie = "service=1";
 },false);
 
-document.getElementById('apple-button').addEventListener('click',function(){
+document.getElementById('apple-login-btn').addEventListener('click',function(){
         document.cookie = "service=0";
 },false);
 

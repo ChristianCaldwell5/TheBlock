@@ -120,6 +120,8 @@ app.get("/setSpotifyToken",function(req,res){
 	var access_token = req.query.access_token;
 	var refresh_token = req.query.refresh_token;
 	var username = req.query.username;
+	//var cookie = req.query.username;
+	//var userName = cookie.replace(/(?:(?:^|.*;\s*)username\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 	console.log(access_token);
 	//need to update to set both tokens with correct username
 	connection.query("UPDATE usersTable SET token='"+access_token+"', refreshToken='"+refresh_token+"' WHERE username='"+username+"'", function(err,rows,fields){
@@ -186,8 +188,10 @@ app.get("/setAppleToken",function(req,res){
 	var musicUserToken = req.query.token;
 	var refreshToken = req.query.refreshToken;
 	var cookie = req.query.username;
-	var a = cookie.split("=");
-	var userName = a[1];
+	console.dir(cookie);
+	/*var a = cookie.split("=");
+	var userName = a[1];*/
+	var userName = cookie.replace(/(?:(?:^|.*;\s*)username\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 	console.dir(userName);
 	console.log("test");
 	console.log(userName);

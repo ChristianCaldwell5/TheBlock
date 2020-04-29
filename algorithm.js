@@ -2,7 +2,7 @@ const cron = require("node-cron");
 const express = require("express");
 const fs = require("fs");
 const ajaxrequest = require("ajax-request");
-
+const axios = require("axios");
 var request = require('request');
 
 var client_id = 'e6d465ab8afb4cd4beb72069fa2f4d1f'; // Your client id
@@ -178,22 +178,48 @@ cron.schedule("15 * * * * *", function(){
 	    for(i=0; i<50; i+=10){
 	      j = i + x*50;
 	      stop = j+10;
-	      $.ajax({
+		var options = {
+			 url: "https://api.music.apple.com/v1/me/library/recently-added?offset=" + i,
+                	async: false,
+                	headers:{
+                	  'Music-User-Token' : appleMusicToken[x],
+                	  "Authorization": "Bearer " + appleDevToken[x]
+                	}
+		}
+		request.get(options, function(error,response,body){
+			var k = 0;
+                        //console.log(response);
+                        var data = JSON.parse(body);
+                        console.dir(data);
+                    	while(j<stop){
+                      		albumIDs[j] = data.data[k].id;
+                                console.dir(albumIDs[j]);
+                      		j++;
+                      		k++;
+                    	}
+
+		});
+
+
+	      /*ajaxrequest({
 	        url: "https://api.music.apple.com/v1/me/library/recently-added?offset=" + i,
 	        async: false,
 	        headers:{
 	          'Music-User-Token' : appleMusicToken[x],
 	          "Authorization": "Bearer " + appleDevToken[x]
 	        }
-	        }).done(function(err, res, body){
+	        }, function(err, res, body){
 	          	var k = 0;
+			console.log(res);
+			console.dir(body);
 	            while(j<stop){
 	              albumIDs[j] = body.responseJSON.data[k].id;
 								console.dir(albumIDs[j]);
 	              j++;
 	              k++;
 	            }
-	        });
+		  
+	        });*/
 			}
 		}
 	});

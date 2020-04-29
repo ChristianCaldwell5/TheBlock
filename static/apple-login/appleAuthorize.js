@@ -1,3 +1,4 @@
+
 document.addEventListener('musickitloaded', () => {
   fetch("http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/appleToken", {method: "GET", headers: {'Content-Type':'application/json'}}).then(response => response.json()).then(response => {
 
