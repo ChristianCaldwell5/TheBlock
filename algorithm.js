@@ -198,30 +198,30 @@ cron.schedule("15 * * * * *", function(){
         		}
 					});
 				}
-			}
 
-		for(i=0; i<50; i++){
-			var options = {
-				url: 'https://api.music.apple.com/v1/me/library/albums/' + albumIDs[i],
-				async: false,
-				headers:{
-					'Music-User-Token' : music.musicToken,
-					"Authorization": "Bearer " + music.developerToken
-				}
+				for(i=0; i<50; i++){
+					var options = {
+						url: 'https://api.music.apple.com/v1/me/library/albums/' + albumIDs[i],
+						async: false,
+						headers:{
+							'Music-User-Token' : appleMusicToken[x],
+							"Authorization": "Bearer " + appleDevToken[x]
+						}
+					}
+      		request.get(options, function(error,response,body){
+						console.log(i);
+        		songIDs[i] = body.responseJSON.data[0].relationships.tracks.data[0].id;
+        		console.log('Song ID: ' + songIDs[i]);
+        		name[i] = body.responseJSON.data[0].relationships.tracks.data[0].attributes.name;
+        		console.log('Name: ' + name[i]);
+        		artistName[i] = body.responseJSON.data[0].relationships.tracks.data[0].attributes.artistName;
+        		console.log('Artist: ' + artistName[i]);
+        		artwork[i] = body.responseJSON.data[0].relationships.tracks.data[0].attributes.artwork.url;
+        		artwork[i] = artwork[i].replace("{w}x{h}", "640x640");
+        		console.log('Art: ' + artwork[i]);
+					});
+    		}
 			}
-      request.get(options, function(error,response,body){
-				console.log(i);
-        songIDs[i] = body.responseJSON.data[0].relationships.tracks.data[0].id;
-        console.log('Song ID: ' + songIDs[i]);
-        name[i] = body.responseJSON.data[0].relationships.tracks.data[0].attributes.name;
-        console.log('Name: ' + name[i]);
-        artistName[i] = body.responseJSON.data[0].relationships.tracks.data[0].attributes.artistName;
-        console.log('Artist: ' + artistName[i]);
-        artwork[i] = body.responseJSON.data[0].relationships.tracks.data[0].attributes.artwork.url;
-        artwork[i] = artwork[i].replace("{w}x{h}", "640x640");
-        console.log('Art: ' + artwork[i]);
-			});
-    }
 	});
 
 	connection.query("SELECT * FROM usersTable WHERE isSpotify='0'", function(err,rows,fields){
