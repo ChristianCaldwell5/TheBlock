@@ -87,6 +87,11 @@ export function change_account_details(){
         tb_error.innerHTML = 'All or some fields were not changed. All are required.';
         return 0;
     }
+    else if( new_age >= 100 || new_age <= 10){
+        tb_error.style.display = 'block';
+        tb_error.innerHTML = 'Hmmm, double check the age and try again.';
+        return 0;
+    }
     document.getElementById('a-location').innerHTML = 'Location: ' + new_city + ', ' + new_state + ', ' + new_country;
     document.getElementById('a-age').innerHTML = 'Age: ' + new_age; 
     //ensure error goes away
