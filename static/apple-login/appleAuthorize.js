@@ -11,14 +11,15 @@ document.addEventListener('musickitloaded', () => {
 
     document.getElementById('apple-login-btn').addEventListener('click', () => {
         music.authorize().then(musicUserToken => {
-	    console.log(document.cookie);
+	         console.log(document.cookie);
             //console.log(`Authorized, music-user-token: ${musicUserToken}`);
             //app.get('/setAppleToken', (req, res) => res.send(JSON.stringify({token: musicUserToken})))
             $.ajax({
 		             url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/setAppleToken',
 		             data:{
 			                'token': musicUserToken,
-                      			'username': document.cookie
+                      'refreshToken': response.token,
+                      'username': document.cookie
                   }
 	          }).done(function(){
 		            console.log("send");

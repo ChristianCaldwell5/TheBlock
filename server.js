@@ -25,7 +25,7 @@ app.get("/userPass",function(req,res){
 	connection.connect();
 	console.log("connected");
 	var userName = req.query.username;
-	var passWord = req.query.password;	
+	var passWord = req.query.password;
 
 	connection.query("INSERT INTO usersTable(username,password) VALUES ('"+userName+"', AES_ENCRYPT('"+passWord+"','"+secret+"'))", function(err,rows,fields){
 
@@ -101,7 +101,7 @@ app.get("/demographics", function(req,res){
 	});
 
 	res.send("it worked");
-	
+
 	connection.end();
 
 });
@@ -121,7 +121,7 @@ app.get("/setSpotifyToken",function(req,res){
 	var refresh_token = req.query.refresh_token;
 	var username = req.query.username;
 	console.log(access_token);
-	//need to update to set both tokens with correct username 
+	//need to update to set both tokens with correct username
 	connection.query("UPDATE usersTable SET token='"+access_token+"', refreshToken='"+refresh_token+"' WHERE username='"+username+"'", function(err,rows,fields){
 		if(err) throw err
 		console.log("saved token");
@@ -159,7 +159,7 @@ app.get("/updateTokenPairs",function(req,res){
                 port: '3306'
         });
 	var refresh_token = req.query.refresh_token;
-	var access_token = req.query.access_token;	
+	var access_token = req.query.access_token;
         //console.log(access_token);
 	//console.log(refresh_token);
 	connection.connect();
@@ -184,6 +184,7 @@ app.get("/setAppleToken",function(req,res){
         });
         connection.connect();
 	var musicUserToken = req.query.token;
+	var refreshToken = req.query.refreshToken;
 	var cookie = req.query.username;
 	var a = cookie.split("=");
 	var userName = a[1];
@@ -192,11 +193,11 @@ app.get("/setAppleToken",function(req,res){
 	console.log(userName);
 	console.log(musicUserToken);
 	console.dir(musicUserToken);
-	connection.query("UPDATE usersTable SET token='"+musicUserToken+"', isSpotify='0' WHERE username='"+userName+"'", function(err,rows,fields){
+	connection.query("UPDATE usersTable SET token='"+musicUserToken+"', refreshToken= '"+refreshToken+"', isSpotify='0' WHERE username='"+userName+"'", function(err,rows,fields){
 		if(err) throw err
 		console.log("saved token");
 	});
-	
+
 	res.send("{}");
 	connection.end();
 });
