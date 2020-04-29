@@ -1,6 +1,7 @@
 //Load information by database
 import React from 'react';
 import Cookies from 'js-cookie';
+import axios from 'axios';
 
 var name = Cookies.get("username");
 var city = Cookies.get("city");
@@ -42,6 +43,32 @@ export function getUserInfo(){
    	});*/
 
 }
+
+/*export function getUserSongs(){
+        console.log("test");
+	console.log(Cookies.get("age"));
+        axios({
+                url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/getSongs',
+                params: {
+                        username: name,
+                        country: country,
+                        state: state,
+                        city: city,
+                        age: age,
+                        gender: Cookies.get("gender")
+                }
+        }).then(function(data){
+                console.dir(data);
+		console.dir(data.data);
+		var i;
+		for(i=0;i<data.data.length;i++){
+			console.log(data.data[i].name);
+		}
+        });
+}*/
+
+
+
 
 export function request_account_details(x){
      var username = Cookies.get('username');
