@@ -22,6 +22,7 @@
   "dependencies": {
     "ajax": "0.0.4",
     "ajax-request": "^1.2.3",
+    "axios": "^0.19.2",
     "buffer": "^5.5.0",
     "cors": "^2.8.5",
     "country-state-city": "^1.0.4",
@@ -29,6 +30,7 @@
     "jquery": "^3.5.0",
     "mysql": "^2.18.1",
     "next": "^9.2.2",
+    "node-cron": "^2.0.3",
     "react": "^16.13.0",
     "react-country-region-selector": "^2.1.0",
     "react-dom": "^16.13.0",
@@ -39,6 +41,7 @@
     "requestjs": "^1.0.3",
     "require": "^2.4.20",
     "requirejs": "^2.3.6",
+    "sync-request": "^6.1.0",
     "webpack-dev-server": "^3.10.3"
   }
 }

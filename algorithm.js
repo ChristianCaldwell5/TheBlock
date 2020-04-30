@@ -3,6 +3,7 @@ const express = require("express");
 const fs = require("fs");
 const ajaxrequest = require("ajax-request");
 const axios = require("axios");
+const sync = require("sync-request");
 var request = require('request');
 
 var client_id = 'e6d465ab8afb4cd4beb72069fa2f4d1f'; // Your client id
@@ -128,7 +129,7 @@ var songs = [];
 //                                                 songs[i].items[j].name = songs[i].items[j].name.replace("'","''");
 //                                         }
 //
-//                                         connection.query("INSERT INTO songsTable(name, artist, image, isrc, popularity, age, gender,country,state,city) VALUES ('"+songs[i].items[j].name+"', '"+songs[i].items[j].artists[0].name+"', '"+songs[i].items[j].album.images[0].url+"','"+songs[i].items[j].external_ids.isrc+"', '0', '"+sUD[i].age+"', '"+sUD[i].gender+"', '"+sUD[i].country+"', '"+sUD[i].state+"', '"+sUD[i].city+"')",function(err,rows,fields){
+//                                         connection.query("INSERT INTO songsTable(name, artist, image, isrc, popularity, age, gender,country,state,city,isSpotify) VALUES ('"+songs[i].items[j].name+"', '"+songs[i].items[j].artists[0].name+"', '"+songs[i].items[j].album.images[0].url+"','"+songs[i].items[j].external_ids.isrc+"', '0', '"+sUD[i].age+"', '"+sUD[i].gender+"', '"+sUD[i].country+"', '"+sUD[i].state+"', '"+sUD[i].city+"','1')",function(err,rows,fields){
 //                                         if(err) throw err
 //                                 });
 // 			}
@@ -143,6 +144,10 @@ var songs = [];
 var appleMusicToken = [];
 var appleDevToken = [];
 var albumIDs = [''];
+var userInfo = [];
+var artistName = [];
+var artwork = [];
+var name = [];
 
 
 cron.schedule("15 * * * * *", function(){
@@ -159,11 +164,15 @@ cron.schedule("15 * * * * *", function(){
   	});
   	connection.connect();
 
+	connection.query("DELETE FROM songsTable WHERE isSpotify='0'",function(err,rows,fields){
+		
+	});
+
 		//var albumIDs = [];
 		var songIDs = [];
-  	var artistName = [];
+  	/*var artistName = [];
   	var artwork = [];
-  	var name = [];
+  	var name = [];*/
 		//var appleMusicToken = [];
 		//var appleDevToken = [];
 
@@ -172,7 +181,9 @@ cron.schedule("15 * * * * *", function(){
 			console.log("apple tokens");
 			console.dir(rows);
 			var x;
+			console.log(rows.length);
 			for(x=0; x < rows.length; x++){
+				console.log("START LOOP");
 				appleMusicToken[x] = rows[x].token;
 				appleDevToken[x] = rows[x].refreshToken;
 				console.log(appleMusicToken[x]);
@@ -184,8 +195,27 @@ cron.schedule("15 * * * * *", function(){
 	      	j = i + x*50;
 	      	stop = j+10;
 		console.log("J =" + j + "stop=" + stop);
-
-					var options = {
+		var res = sync("GET", "https://api.music.apple.com/v1/me/library/recently-added?offset=" + i, {
+			headers: {
+				  'Music-User-Token' : appleMusicToken[x],
+              			  "Authorization": "Bearer " + appleDevToken[x]
+			},
+			});
+		console.dir(res.getBody('utf-8'));
+		var data = res.getBody('utf-8');
+		data = JSON.parse(data);
+		console.dir(data);
+		var k = 0;
+		while(j<stop){
+                        console.log(k);
+                        //albumIDs[j] = data.data[k].id;
+                        console.log(k);
+                        console.dir(data.data[k].id);
+                        setAlbumIDs(data.data[k].id);
+                        j++;
+                        k++;
+		}
+					/*var options = {
 			 			url: "https://api.music.apple.com/v1/me/library/recently-added?offset=" + i,
           	
           	headers:{
@@ -207,8 +237,8 @@ cron.schedule("15 * * * * *", function(){
             		j++;
             		k++;
 			//setAlbumIDs(data.data[k].id);
-        		}
-					});
+        		}*/
+				//	});
 				}
 				//setAppleMusicTokens(appleMusicToken);
 				//setAlbumIDs(albumIDs);
@@ -217,11 +247,16 @@ cron.schedule("15 * * * * *", function(){
 					appleMusicTokens = getAppleMusicTokens();
 					albumIDs = getAlbumIDs();
 					for(i=0; i<50; i++){
-					console.dir(appleMusicToken[x]);
-					console.log(albumIDs[i]);
+					x = 0;
+					console.log(appleMusicToken[x]);
+					console.log(albumIDs[i+1]);
+					console.log(appleDevToken[x]);
+					if(albumIDs[i+1].charAt(0) == 'p'){
+						i++
+					}
+					console.log("i="+i + "x="+x);
 					var options = {
-						url: 'https://api.music.apple.com/v1/me/library/albums/' + albumIDs[i],
-						async: false,
+						url: 'https://api.music.apple.com/v1/me/library/albums/' + albumIDs[i+1],
 						headers:{
 							'Music-User-Token' : appleMusicToken[x],
 							"Authorization": "Bearer " + appleDevToken[x]
@@ -229,17 +264,21 @@ cron.schedule("15 * * * * *", function(){
 					}
       		request.get(options, function(error,response,body){
 			body = JSON.parse(body);
-						console.log(i);
-			console.dir("body:" + body);
-        		songIDs[i] = body.data[0].relationships.tracks.data[0].id;
-        		console.log('Song ID: ' + songIDs[i]);
-        		name[i] = body.data[0].relationships.tracks.data[0].attributes.name;
+			//console.log(error);
+			//console.log(response);
+			console.log(i);
+			//console.dir(body);
+        		//songIDs[i] = body.data[0].relationships.tracks.data[0].id;
+        		//console.log('Song ID: ' + songIDs[i]);
+        		/*name[i] = body.data[0].relationships.tracks.data[0].attributes.name;
         		console.log('Name: ' + name[i]);
         		artistName[i] = body.data[0].relationships.tracks.data[0].attributes.artistName;
         		console.log('Artist: ' + artistName[i]);
         		artwork[i] = body.data[0].relationships.tracks.data[0].attributes.artwork.url;
         		artwork[i] = artwork[i].replace("{w}x{h}", "640x640");
-        		console.log('Art: ' + artwork[i]);
+        		console.log('Art: ' + artwork[i]);*/
+			setSongInfo(body.data[0].relationships.tracks.data[0].attributes.name, body.data[0].relationships.tracks.data[0].attributes.artistName, body.data[0].relationships.tracks.data[0].attributes.artwork.url.replace("{w}x{h}", "640x640"));
+			
 					});
     		}
 		},10000);
@@ -248,14 +287,42 @@ cron.schedule("15 * * * * *", function(){
 	
 
 	connection.query("SELECT * FROM usersTable WHERE isSpotify='0'", function(err,rows,fields){
-    if(err) throw err
-    console.log("apple info");
-    console.dir(rows);
+    		if(err) throw err
+    		console.log("apple info");
+    		console.dir(rows);
 		console.log(rows.length);
-    sUD = rows;
-		console.log(sUD[1].gender);
-		console.log(sUD[1].username);
-  });
+    		userInfo = rows;
+		saveUserInfo(userInfo);
+		//console.log(sUD[1].gender);
+		//console.log(sUD[1].username);
+  	});
+	setTimeout(function(){
+		var z;
+		console.log(name.length);
+		name = getNames();
+		artwork = getArt();
+		artistName = getArtist();
+		var user = getUserInfo();
+		console.dir(user);
+		for(z=0;z<name.length;z++){
+			console.log(z);
+			console.log(name[z]);
+			console.log(artistName[z]);
+			console.log(artwork[z]);
+			if(name[z].includes("'")){
+				console.log("hiya");
+				name[z] = name[z].replace("'","''");
+			}
+			if(artistName[z].includes("'")){
+				console.log("heyo");
+				artistName[z] = artistName[z].replace("'","''");
+			}
+			var popularity = getRandomInt(99);
+			connection.query("INSERT INTO songsTable(name,artist,image,popularity,gender,age,country,state,city,isSpotify) VALUES ('"+name[z]+"', '"+artistName[z]+"', '"+artwork[z]+"','"+popularity+"','"+user[0].gender+"','"+user[0].age+"','"+user[0].country+"','"+user[0].state+"','"+user[0].city+"','0')",function(err,rows,fields){
+			if(err) throw err
+		     });
+		}
+	},15000);
 });
 
 function getAppleMusicTokens(){
@@ -274,6 +341,46 @@ function setAppleMusicTokens(data){
 	}else{
 	appleMusicToken.push(data);
 	}
+}
+
+function saveUserInfo(info){
+	userInfo = info;
+}
+
+function getUserInfo(){
+	return userInfo;
+}
+
+function setSongInfo(Name,artist,art){
+	if(name.length ==0){
+        	name[0] = Name;
+        }else{
+        	name.push(Name);
+        }
+	if(artistName.length ==0){
+                artistName[0] = artist;
+        }else{
+                artistName.push(artist);
+        }
+	if(artwork.length ==0){
+                artwork[0] = art;
+        }else{
+                artwork.push(art);
+        }
+
+
+}
+
+function getNames(){
+	return name;
+}
+
+function getArt(){
+	return artwork;
+}
+
+function getArtist(){
+	return artistName;
 }
 
 function setAlbumIDs(data){
@@ -301,6 +408,10 @@ function setSongs(data){
 		songs[songs.length] = data;
 	}
 	console.dir(songs);
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
 }
 
 var numUsers;
