@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Navbar from '../components/nav';
 import Spacer from '../components/spacer';
-import Charts from '../components/home/charts';
+import Charts from '../components/account/charts';
 import Footer from '../components/footer';
 import * as request from '../static/operation-script/request_user.js'
 import * as utility from '../static/operation-script/account_op.js'

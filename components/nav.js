@@ -1,5 +1,5 @@
 import React from 'react';
-import * as request from '../static/operation-script/request_user.js'
+import * as request from '../static/operation-script/request_user.js';
 import Link from 'next/link'
 
 const Navbar = () => (

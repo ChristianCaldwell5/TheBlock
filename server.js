@@ -170,6 +170,105 @@ app.get("/updateTokenPairs",function(req,res){
         connection.end();
 });
 
+app.get("/getUserSongs",function(req,res){
+			
+  var mysql = require('mysql');
+        var connection = mysql.createConnection({
+                host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+                user: 'capDBadmin',
+                password: 'CapDBMaster',
+                database: 'usersDB',
+                port: '3306'
+        });
+	var username = req.query.username;
+	console.log(username);
+	if(typeof username === 'undefined'){
+
+	}else{
+	connection.query("SELECT token FROM usersTable WHERE username='"+username+"'",function(err,rows,fields){
+			if(err){
+				
+			}else{
+				const options = {
+                                	url: 'https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=10',
+                                	headers: {
+                                	"Authorization": "Bearer " + rows[0].token
+                                	},
+                        	}
+			request.get(options,function(error,response,body){
+                                console.log(error);
+				data = JSON.parse(body);
+                                console.dir(data);
+				console.dir(data.items);
+                      		res.send(data.items);
+                                //songs = data;
+                                console.log("hit");
+                        });
+			}
+	});
+	}	
+});
+
+app.get("/getSongs", function(req,res){
+	var mysql = require('mysql');
+        var connection = mysql.createConnection({
+                host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+                user: 'capDBadmin',
+                password: 'CapDBMaster',
+                database: 'usersDB',
+                port: '3306'
+        });
+        connection.connect();
+	console.log("getting songs");
+	var username = req.query.username;
+	console.dir(req.cookies);
+	console.dir(req);
+	console.dir(req.params);
+	var country = req.query.country;
+	var state = req.query.state;
+	var city = req.query.city;
+	var age = req.query.age;
+	console.log(username);
+	console.log(country);
+	var gender = req.query.gender;
+	console.log(gender);
+	connection.query("SELECT * FROM songsTable WHERE city='"+city+"'",function(err,rows,fields){
+		console.dir(rows);
+		console.dir(fields);
+		res.send(rows);
+	});
+	//res.send(rows);	
+});
+
+app.get("/getAllSongs", function(req,res){
+        var mysql = require('mysql');
+        var connection = mysql.createConnection({
+                host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+                user: 'capDBadmin',
+                password: 'CapDBMaster',
+                database: 'usersDB',
+                port: '3306'
+        });
+        connection.connect();
+        console.log("getting songs");
+        var username = req.query.username;
+        //console.dir(req.cookies);
+        //console.dir(req);
+        //console.dir(req.params);
+        //var country = req.query.country;
+        //var state = req.query.state;
+        //var city = req.query.city;
+        //var age = req.query.age;
+        //console.log(username);
+        //console.log(country);
+        //var gender = req.query.gender;
+        //console.log(gender);
+        connection.query("SELECT * FROM songsTable" ,function(err,rows,fields){
+                //console.dir(rows);
+                res.send(rows);
+        });
+        //res.send(rows);
+});
 
 
 app.get("/setAppleToken",function(req,res){

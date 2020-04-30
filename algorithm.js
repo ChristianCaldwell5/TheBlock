@@ -65,20 +65,22 @@ cron.schedule("15 * * * * *", function(){
 			console.log("off to spotify");
 			console.log(spotifyTokens.length);
 			const options = {
-				url: 'https://api.spotify.com/v1/me/top/tracks?limit=50',
+				url: 'https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=50',
 				headers: {
 			 	"Authorization": "Bearer " + spotifyTokens[i].token
 				},
 			}
-			connection.query("DELETE FROM songsTable",function(err,rows,fields){
+			connection.query("DELETE FROM songsTable WHERE isSpotify='1'",function(err,rows,fields){
                                         if(err) throw err
                         });
 
 			request.get(options,function(error,response,body){
 				data = JSON.parse(body);
-				console.log(data.items[0].external_ids.isrc);
-				console.log(data.items.length);
+				//console.dir(response);
+				//console.log(data.items[0].external_ids.isrc);
+				//console.log(data.items.length);
 			        //songs = data;
+			        console.log(error);
 			       	console.log("hit");
 				setSongs(data);	
 			});
@@ -110,6 +112,9 @@ cron.schedule("15 * * * * *", function(){
 		var i;
 		var j;
 		sUD.reverse();
+		console.log(sUD.length);
+		console.log(i);
+		console.log(songs[0].items.length);
 		for(i=0;i<sUD.length;i++){
 			for(j=0;j<songs[i].items.length;j++){
 				 	console.log(i);
@@ -128,7 +133,7 @@ cron.schedule("15 * * * * *", function(){
                                                 songs[i].items[j].name = songs[i].items[j].name.replace("'","''");
                                         }
 
-                                        connection.query("INSERT INTO songsTable(name, artist, image, isrc, popularity, age, gender,country,state,city) VALUES ('"+songs[i].items[j].name+"', '"+songs[i].items[j].artists[0].name+"', '"+songs[i].items[j].album.images[0].url+"','"+songs[i].items[j].external_ids.isrc+"', '0', '"+sUD[i].age+"', '"+sUD[i].gender+"', '"+sUD[i].country+"', '"+sUD[i].state+"', '"+sUD[i].city+"')",function(err,rows,fields){
+                                        connection.query("INSERT INTO songsTable(name, artist, image, isrc, popularity, age, gender,country,state,city,isSpotify) VALUES ('"+songs[i].items[j].name+"', '"+songs[i].items[j].artists[0].name+"', '"+songs[i].items[j].album.images[0].url+"','"+songs[i].items[j].external_ids.isrc+"', '"+songs[i].items[j].popularity+"', '"+sUD[i].age+"', '"+sUD[i].gender+"', '"+sUD[i].country+"', '"+sUD[i].state+"', '"+sUD[i].city+"', '1')",function(err,rows,fields){
                                         if(err) throw err
                                 });	
 			}
@@ -153,6 +158,7 @@ function setSongs(data){
 	}else{
 		songs[songs.length] = data;
 	}
+	console.log("songs:");
 	console.dir(songs);
 }
 
