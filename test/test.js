@@ -301,7 +301,7 @@ describe('Apple', function() {
       var username = 'ChristianC';
       connection.query("SELECT token, refreshToken FROM usersTable WHERE username='"+username+"'", function(err,rows,fields) {
         if(err) throw err
-        console.log(rows);
+        //console.log(rows);
         const options = {
           url: 'https://api.music.apple.com/v1/me/recent/played?limit=1',
   				headers:{
@@ -311,11 +311,14 @@ describe('Apple', function() {
         }
         request.get(options,function(error,response,body) {
             body = JSON.parse(body);
+	    //console.log(body);
             if(body == null) {
-              boolCheck = true;
+              boolCheck = false;
               pass(boolCheck);
-            }
-        });
+            }else{
+		pass(true);
+	    }
+        })
       });
 
       function pass(boolCheck) {
@@ -348,25 +351,31 @@ describe('Apple', function() {
               			 "Authorization": "Bearer " + rows[0].refreshToken
 			         },
 			    });
-          console.dir(res.getBody('utf-8'));
+          //console.dir(res.getBody('utf-8'));
 		      var data = res.getBody('utf-8');
 		      data = JSON.parse(data);
           var k = 0;
           while(j<stop){
             songs[j] = data.data[k].id;
-            console.log(songs[j]);
+            //console.log(songs[j]);
+            if(songs[i] == null){
+          	failure = true;
+            }
+
             j++;
             k++;
           }
         }
       });
-      for(i=0; i<50; i++){
-        if(songs[i] == null){
-          failure = false;
-        }
-      }
-      connection.end();
+      //for(i=0; i<50; i++){
+	//console.log(songs[i]);
+        //if(songs[i] == null){
+          //failure = false;
+        //}
+      //}
+      connection.end(); 
       assert.equal(failure,false);
+
   });
 });
 });
