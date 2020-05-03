@@ -18,10 +18,10 @@ describe('Spotify', function() {
 			assert.equal(1,1);
 		});
 		it('invalid credentials provided and did not recieve access token', function(){
-			//same as above 
+			//same as above
 			assert.notEqual(0,1);
 		});
-	});		
+	});
 	describe('API validation', function(){
 		it('Access Tokens are valid', function(){
 			var connection = mysql.createConnection({
@@ -52,7 +52,7 @@ describe('Spotify', function() {
 					//}
 					connection.end();
 				});
-					
+
 			});
 			assert.equal(fail,false);
 		});
@@ -75,10 +75,10 @@ describe('Spotify', function() {
                                         },
                                 }
                                 request.get(options,function(error,response,body){
-                                        body = JSON.parse(body);		
+                                        body = JSON.parse(body);
 					if(body.total != 50){
 						fail = true;
-					}	
+					}
 					connection.end();
                                 });
 
@@ -149,7 +149,7 @@ describe('Spotify', function() {
       					fail = false;
       					//console.log(access_token);
 					connection.query("UPDATE usersTable SET token='"+access_token+"' WHERE username='"+username+"'",function(err,rows,body){
-					
+
 					});
 				}else{
 					fail = true;
@@ -188,7 +188,7 @@ describe('Database', function() {
 	function pass(boolCheck){
                 connection.end();
                 assert.equal(true, boolCheck);
-        }		
+        }
     });
   });
 
@@ -212,7 +212,7 @@ describe('Database', function() {
                         }
 
         });
-        
+
         function pass(boolCheck){
                 connection.end();
                 assert.equal(true, boolCheck);
@@ -224,7 +224,7 @@ describe('Database', function() {
   describe('usersTable NULL check', function() {
     it('if select query returns NULL, there is no NULL values in the table', function(){
 
-	var boolCheck = false;      
+	var boolCheck = false;
 	var mysql = require('mysql');
         var connection = mysql.createConnection({
                         host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
@@ -237,13 +237,13 @@ describe('Database', function() {
 
         connection.query("SELECT * FROM usersTable WHERE userID IS NULL OR username IS NULL OR password IS NULL OR isSpotify IS NULL OR gender IS NULL OR country IS NULL OR state IS NULL OR city IS NULL OR age IS NULL OR token IS NULL OR refreshToken IS NULL",function(err,rows,fields){
                         if(err) throw err
-			
+
 			if(rows.length == 0){
 				boolCheck = true;
 				pass(boolCheck);
 			}
         });
-	
+
 	function pass(boolCheck){
 		connection.end();
 		assert.equal(true, boolCheck);
@@ -268,19 +268,19 @@ describe('Database', function() {
 
         connection.query("SELECT * FROM songsTable WHERE songID IS NULL OR name IS NULL OR artist IS NULL OR image IS NULL OR isrc IS NULL OR popularity IS NULL OR state IS NULL OR city IS NULL OR age IS NULL OR isSpotify IS NULL OR country IS NULL",function(err,rows,fields){
                         if(err) throw err
-			
-                        if(rows.length == 0){ 
+
+                        if(rows.length == 0){
                                 boolCheck = true;
 				pass(boolCheck);
                         }
 
         });
-        
+
 	function pass(boolCheck){
 		connection.end();
 		assert.equal(true, boolCheck);
 	}
-        
+
     });
   });
 
@@ -353,8 +353,8 @@ describe('Apple', function() {
 		      data = JSON.parse(data);
           var k = 0;
           while(j<stop){
-            console.log(songs[j]);
             songs[j] = data.data[k].id;
+            console.log(songs[j]);
             j++;
             k++;
           }
