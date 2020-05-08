@@ -1,4 +1,5 @@
 import React from 'react';
+import Cookies from 'js-cookie';
 
 const Initial = () => (
     <div id="initial">
@@ -59,8 +60,8 @@ const SignUp_p3 = () => (
     <div id="register3" className="hide-element">
         <h1 className="the-block-title">Connect to Music Service</h1>
         <hr id="login-hr"></hr>
-        <a className="the-block-spotify--large" href="http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login"><i className="fa fa-spotify block-icon"></i>Spotify Login</a>
-        <button className="the-block-apple--large" id="apple-login-btn"><i className="fa fa-apple block-icon"></i>Apple Login</button>
+        <a className="the-block-spotify--large" href="http://ec2-3-88-85-136.compute-1.amazonaws.com:8888/login" id="spotify-button" ><i className="fa fa-spotify block-icon"></i>Spotify Login</a>
+        <button className="the-block-apple--large" id="apple-login-btn" id="apple-button"><i className="fa fa-apple block-icon"></i>Apple Login</button>
         <button id="cancel3-btn" className="the-block-btn--large clear">Cancel</button>
     </div>
 );

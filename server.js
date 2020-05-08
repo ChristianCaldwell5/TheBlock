@@ -2,12 +2,15 @@ var express = require("express");
 var app = express();
 var request = require("request");
 var cors = require("cors");
+var cookieParser = require('cookie-parser');
 app.use(express.static(__dirname)).use(cors())
+app.use(cookieParser());
 console.log("running");
 var savedUser;
 var secret = "420blazeit";
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
+
 
 app.get("/userPass",function(req,res){
 	console.log("begin");
@@ -22,10 +25,7 @@ app.get("/userPass",function(req,res){
 	connection.connect();
 	console.log("connected");
 	var userName = req.query.username;
-	var passWord = req.query.password;
-
-	savedUser = userName;
-
+	var passWord = req.query.password;	
 
 	connection.query("INSERT INTO usersTable(username,password) VALUES ('"+userName+"', AES_ENCRYPT('"+passWord+"','"+secret+"'))", function(err,rows,fields){
 
@@ -42,8 +42,34 @@ app.get("/userPass",function(req,res){
 	res.send("it worked");
 });
 
+app.get("/getUserInfo", function(req,res){
+	var mysql = require('mysql');
+	var connection = mysql.createConnection({
+			host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+			user: 'capDBadmin',
+			password: 'CapDBMaster',
+			database: 'usersDB',
+			port: '3306'
+	});
+	connection.connect();
+	//var cookie = req.query.userName;
+        //var a = cookie.split("=");
+        //var username = a[1];
+        var username = req.query.userName;
+	console.log(username);
+
+	connection.query("SELECT * FROM usersTable WHERE username='"+username+"'",function(err,rows,fields){
+			if(err) throw err
+			console.dir(rows);
+			console.dir(fields);
+			res.send(rows);
+	});
+	connection.end();
+}); 
+
 app.get("/demographics", function(req,res){
 	console.log("saving demographic info");
+
 	var mysql = require('mysql');
         var connection = mysql.createConnection({
                 host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
@@ -60,14 +86,22 @@ app.get("/demographics", function(req,res){
 	var age = req.query.age;
 	var bandID = 0;
 	var isSpotify = 1;
-	var userName = savedUser;
+	var cookie = req.query.username;
+	//var a = cookie.split("=");
+	//var userName = a[1];
+	var userName = cookie.replace(/(?:(?:^|.*;\s*)username\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+	console.log(userName);
 
 	connection.query("UPDATE usersTable SET bandID='"+bandID+"', isSpotify='"+isSpotify+"', gender='"+gender+"', country='"+country+"', state='"+state+"', city='"+city+"', age='"+age+"' WHERE username='"+userName+"' ", function(err,rows,fields){
 		if(err) throw err
+		console.log("UPDATE usersTable SET bandID='"+bandID+"', isSpotify='"+isSpotify+"', gender='"+gender+"', country='"+country+"', state='"+state+"', city='"+city+"', age='"+age+"' WHERE username = '"+userName+"' ");
 		console.log("save complete");
+		console.log(rows);
+		console.log(fields);
 	});
 
 	res.send("it worked");
+	
 	connection.end();
 
 });
@@ -84,12 +118,184 @@ app.get("/setSpotifyToken",function(req,res){
         });
         connection.connect();
 	var access_token = req.query.access_token;
+	var refresh_token = req.query.refresh_token;
+	var username = req.query.username;
 	console.log(access_token);
-	connection.query("UPDATE usersTable SET token='"+access_token+"' WHERE username='"+savedUser+"'", function(err,rows,fields){
+	//need to update to set both tokens with correct username 
+	connection.query("UPDATE usersTable SET token='"+access_token+"', refreshToken='"+refresh_token+"' WHERE username='"+username+"'", function(err,rows,fields){
 		if(err) throw err
 		console.log("saved token");
 	});
+	res.send("{}");
+	connection.end();
+});
 
+app.get("/getSpotifyTokenPairs",function(req,res){
+	var mysql = require('mysql');
+        var connection = mysql.createConnection({
+                host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+                user: 'capDBadmin',
+                password: 'CapDBMaster',
+                database: 'usersDB',
+                port: '3306'
+        });
+        connection.connect();
+	connection.query("SELECT token, refreshToken FROM usersTable WHERE isSpotify='1'",function(err,rows,fields){
+		if(err) throw err
+		console.log(rows);
+		res.json(rows);
+	});
+	connection.end();
+});
+
+
+app.get("/updateTokenPairs",function(req,res){
+        var mysql = require('mysql');
+        var connection = mysql.createConnection({
+                host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+                user: 'capDBadmin',
+                password: 'CapDBMaster',
+                database: 'usersDB',
+                port: '3306'
+        });
+	var refresh_token = req.query.refresh_token;
+	var access_token = req.query.access_token;	
+        //console.log(access_token);
+	//console.log(refresh_token);
+	connection.connect();
+        connection.query("UPDATE usersTable SET token='"+access_token+"' WHERE refreshToken='"+refresh_token+"'",function(err,rows,fields){
+                if(err) throw err
+                //console.log(rows);
+        });
+        connection.end();
+});
+
+app.get("/getUserSongs",function(req,res){
+			
+  var mysql = require('mysql');
+        var connection = mysql.createConnection({
+                host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+                user: 'capDBadmin',
+                password: 'CapDBMaster',
+                database: 'usersDB',
+                port: '3306'
+        });
+	var username = req.query.username;
+	console.log(username);
+	if(typeof username === 'undefined'){
+
+	}else{
+	connection.query("SELECT token FROM usersTable WHERE username='"+username+"'",function(err,rows,fields){
+			if(err){
+				
+			}else{
+				const options = {
+                                	url: 'https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=10',
+                                	headers: {
+                                	"Authorization": "Bearer " + rows[0].token
+                                	},
+                        	}
+			request.get(options,function(error,response,body){
+                                console.log(error);
+				data = JSON.parse(body);
+                                console.dir(data);
+				console.dir(data.items);
+                      		res.send(data.items);
+                                //songs = data;
+                                console.log("hit");
+                        });
+			}
+	});
+	}	
+});
+
+app.get("/getSongs", function(req,res){
+	var mysql = require('mysql');
+        var connection = mysql.createConnection({
+                host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+                user: 'capDBadmin',
+                password: 'CapDBMaster',
+                database: 'usersDB',
+                port: '3306'
+        });
+        connection.connect();
+	console.log("getting songs");
+	var username = req.query.username;
+	console.dir(req.cookies);
+	console.dir(req);
+	console.dir(req.params);
+	var country = req.query.country;
+	var state = req.query.state;
+	var city = req.query.city;
+	var age = req.query.age;
+	console.log(username);
+	console.log(country);
+	var gender = req.query.gender;
+	console.log(gender);
+	connection.query("SELECT * FROM songsTable WHERE city='"+city+"'",function(err,rows,fields){
+		console.dir(rows);
+		console.dir(fields);
+		res.send(rows);
+	});
+	//res.send(rows);	
+});
+
+app.get("/getAllSongs", function(req,res){
+        var mysql = require('mysql');
+        var connection = mysql.createConnection({
+                host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+                user: 'capDBadmin',
+                password: 'CapDBMaster',
+                database: 'usersDB',
+                port: '3306'
+        });
+        connection.connect();
+        console.log("getting songs");
+        var username = req.query.username;
+        //console.dir(req.cookies);
+        //console.dir(req);
+        //console.dir(req.params);
+        //var country = req.query.country;
+        //var state = req.query.state;
+        //var city = req.query.city;
+        //var age = req.query.age;
+        //console.log(username);
+        //console.log(country);
+        //var gender = req.query.gender;
+        //console.log(gender);
+        connection.query("SELECT * FROM songsTable" ,function(err,rows,fields){
+                //console.dir(rows);
+                res.send(rows);
+        });
+        //res.send(rows);
+});
+
+
+app.get("/setAppleToken",function(req,res){
+	console.log("starting token set");
+	var mysql = require('mysql');
+        var connection = mysql.createConnection({
+                host: 'capdb.cktfsf3s2dmk.us-east-1.rds.amazonaws.com',
+                user: 'capDBadmin',
+                password: 'CapDBMaster',
+                database: 'usersDB',
+                port: '3306'
+        });
+        connection.connect();
+	var musicUserToken = req.query.token;
+	var cookie = req.query.username;
+	var a = cookie.split("=");
+	var userName = a[1];
+	console.dir(userName);
+	console.log("test");
+	console.log(userName);
+	console.log(musicUserToken);
+	console.dir(musicUserToken);
+	connection.query("UPDATE usersTable SET token='"+musicUserToken+"', isSpotify='0' WHERE username='"+userName+"'", function(err,rows,fields){
+		if(err) throw err
+		console.log("saved token");
+	});
+	
 	res.send("{}");
 	connection.end();
 });
@@ -107,7 +313,9 @@ const token = jwt.sign({}, private_key, {
   }
 });
 
-//return true on unique username 
+
+
+//return true on unique username
 app.get("/validateUsername",function(req,res){
 	var mysql = require('mysql');
         var connection = mysql.createConnection({
@@ -142,7 +350,7 @@ app.get("/validateUsername",function(req,res){
 			res.end();
 		}
 	});
-	connection.end();	
+	connection.end();
 });
 
 app.get("/validateLogin",function(req,res){

@@ -1,0 +1,60 @@
+#explore-page{
+    display: block;
+    position: relative;
+    font-size: 4vh;
+    font-weight: bold;
+    font-family: primary;
+    margin: 0.5% auto 0.5% 2vh;
+}
+#explore-container{
+    width: 90%;
+    position: relative;
+    margin: 2% auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.explore-song{
+    width: 30%;
+    margin: 2% auto;
+    position: relative;
+    padding-bottom: 2%;
+    border-bottom: 1px solid black;
+}
+.song-rank{
+    display: block;
+    font-family: primary;
+    font-size: 4vh;
+    width: 100%;
+    position: relative;
+}
+.song-cover{
+    width: 30%;
+    border: 1px solid black;
+    float: left;
+    position: relative;
+}
+.song-detail-wrapper{
+    width: 65%;
+    float: left;
+    position: relative;
+}
+.song-detail-primary{
+    display: block;
+    width: 100%;
+    margin: 2%;
+    text-align: left;
+    padding-left: 1%;
+    position: relative;
+    font-family: primary;
+    font-size: 4vh;
+}
+.song-detail-secondary{
+    display: block;
+    width: 100%;
+    margin: 2%;
+    text-align: left;
+    padding-left: 1%;
+    position: relative;
+    font-family: secondary;
+    font-size: 2vh;
+}

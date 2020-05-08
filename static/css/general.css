@@ -40,6 +40,27 @@ body{
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration: none;
+}
+#tb-error-message{
+    width: 90%;
+    display: none;
+    color: red;
+    margin: 10px auto;
+    font-family: secondary;
+    font-size: 2vh;
+    text-align: center;
+}
+#tb-error-message-pass{
+    width: 90%;
+    display: none;
+    color: red;
+    margin: 10px auto;
+    font-family: secondary;
+    font-size: 2vh;
+    text-align: center;
+}
 
 /* Utility */
 .hide-element{

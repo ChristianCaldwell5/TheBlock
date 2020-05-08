@@ -16,9 +16,18 @@ document.getElementById('login-btn').addEventListener('click', function() {
 document.getElementById('login-submit-btn').addEventListener('click',function(){
     var username = document.getElementById('login-username-field').value;
     var password = document.getElementById('login-password-field').value;
-
     validateLogin(username,password);
+    setCookies(username);
 }, false);
+
+document.getElementById('spotify-button').addEventListener('click',function(){
+	document.cookie = "service=1";
+},false);
+
+document.getElementById('apple-button').addEventListener('click',function(){
+        document.cookie = "service=0";
+},false);
+
 
 //back button on LOGIN option is selected
 document.getElementById('login-back-btn').addEventListener('click', function() { 
@@ -127,7 +136,8 @@ function saveDemographicInfo(gender,country,state,city,age){
                         'country': country,
 			'state':  state,
 			'city': city,
-			'age': age
+			'age': age,
+			'username': document.cookie
                 }
         }).done(function(){
                 console.log("sent");
@@ -152,6 +162,11 @@ function validateDemoInput(gender,country,state,city,age){
 	if(age < 13 || age > 100){
 		return false;
 	}
+	document.cookie = "gender=" + gender;
+	document.cookie = "country=" + country;
+	document.cookie = "state=" + state;
+	document.cookie = "city=" + city;
+	document.cookie = "age=" + age;
 	return true;
 }
 
@@ -172,6 +187,7 @@ function validateUserPass(userName,passWord,passWord2){
 			alert("The username you selected already exists, please login or try a different username");
 		}else{
 			console.log('valid username');
+			document.cookie = "username=" + userName;
 			saveUserPass(userName,passWord);
 			clearClass(register1);
 			clearClass(register2);
@@ -199,8 +215,25 @@ function validateLogin(username,password){
 			alert("Invalid login");
 		}else{
 		 	console.log('Big Dubs');
+			document.cookie = "username=" + username;
+			window.location.href = "http://ec2-3-88-85-136.compute-1.amazonaws.com/home";
 		}
 	});
 }
 
-
+function setCookies(username){
+	$.ajax({
+		url: 'http://ec2-3-88-85-136.compute-1.amazonaws.com:3001/getUserInfo',
+		data: {
+			userName: username
+		}
+	}).done(function(data){
+		console.dir(data);
+		document.cookie = "city=" + data[0].city;
+		document.cookie = "gender=" + data[0].gender;
+		document.cookie = "country=" + data[0].country;
+		document.cookie = "state=" + data[0].state;
+		document.cookie = "age=" + data[0].age;
+		document.cookie = "service=" + data[0].isSpotify;
+	});
+}
