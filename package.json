@@ -25,7 +25,7 @@
     "buffer": "^5.5.0",
     "cors": "^2.8.5",
     "country-state-city": "^1.0.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jquery": "^3.5.0",
     "mysql": "^2.18.1",
     "next": "^9.2.2",
